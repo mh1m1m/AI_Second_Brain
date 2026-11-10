@@ -5,14 +5,17 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Measure | Value |
 |---|---|
-| Tickets done | 9 of 66 (14%) |
-| Points done | 17 of 254 (7%) |
+| Tickets done | 9 of 80 (11%) |
+| Points done | 17 of 316 (5%) |
 | Implemented and tested, awaiting review | 3 |
+| Security-relevant tickets awaiting independent review | SB-010, SB-011, SB-012 |
+| Ready only provisionally (built on unreviewed security work) | none |
+| Gates open | none |
 | Current wave | 1 |
 | Blocked | 0 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings (verified weaknesses) | 0 |
-| Last recorded test run | 98 passed, 0 failed |
+| Last recorded test run | 239 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
 | Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |
@@ -21,44 +24,59 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Status | Tickets |
 |---|---|
-| BACKLOG | 50 |
-| READY | 4 |
+| BACKLOG | 63 |
+| READY | 5 |
 | IN REVIEW | 3 |
 | DONE | 9 |
 
 ## By initiative
 
-| Initiative | Title | Tickets | Done | Complete |
-|---|---|---|---|---|
-| INIT-01 | Repository and Development Foundation | 7 | 7 | 100% |
-| INIT-02 | Cloud Architecture and Infrastructure | 0 | 0 | no ticket yet |
-| INIT-03 | PostgreSQL Data Platform | 8 | 0 | 0% |
-| INIT-04 | Knowledge Ingestion and Classification | 8 | 0 | 0% |
-| INIT-05 | Arabic-First and Bilingual Retrieval | 7 | 2 | 29% |
-| INIT-06 | MCP Server and Claude Code Integration | 4 | 0 | 0% |
-| INIT-07 | Persistent Memory and Session Continuity | 4 | 0 | 0% |
-| INIT-08 | Governance and Independent Approval | 4 | 0 | 0% |
-| INIT-09 | GitHub and Multi-Project Integration | 2 | 0 | 0% |
-| INIT-10 | Security, Privacy and Threat Protection | 6 | 0 | 0% |
-| INIT-11 | Backup, Recovery and Portability | 4 | 0 | 0% |
-| INIT-12 | Claude Code Skills and Developer Experience | 0 | 0 | no ticket yet |
-| INIT-13 | Testing and Quality Engineering | 4 | 0 | 0% |
-| INIT-14 | Cloud Deployment and Operations | 5 | 0 | 0% |
-| INIT-15 | Documentation and Knowledge Transfer | 0 | 0 | no ticket yet |
-| INIT-16 | Production Readiness and Final Acceptance | 3 | 0 | 0% |
+| Initiative | Title | Epics | Tickets | Done | Complete |
+|---|---|---|---|---|---|
+| INIT-01 | Repository and Development Foundation | EP-01, EP-02 | 8 | 7 | 88% |
+| INIT-02 | Cloud Architecture and Infrastructure | EP-19 | 4 | 0 | 0% |
+| INIT-03 | PostgreSQL Data Platform | EP-04 | 8 | 0 | 0% |
+| INIT-04 | Knowledge Ingestion and Classification | EP-03, EP-06, EP-07 | 10 | 0 | 0% |
+| INIT-05 | Arabic-First and Bilingual Retrieval | EP-08, EP-09 | 7 | 2 | 29% |
+| INIT-06 | MCP Server and Claude Code Integration | EP-13 | 4 | 0 | 0% |
+| INIT-07 | Persistent Memory and Session Continuity | EP-10 | 8 | 0 | 0% |
+| INIT-08 | Governance and Independent Approval | EP-11 | 4 | 0 | 0% |
+| INIT-09 | GitHub and Multi-Project Integration | EP-14 | 1 | 0 | 0% |
+| INIT-10 | Security, Privacy and Threat Protection | EP-05, EP-12 | 6 | 0 | 0% |
+| INIT-11 | Backup, Recovery and Portability | EP-15 | 5 | 0 | 0% |
+| INIT-12 | Claude Code Skills and Developer Experience | EP-20 | 3 | 0 | 0% |
+| INIT-13 | Testing and Quality Engineering | EP-17 | 4 | 0 | 0% |
+| INIT-14 | Cloud Deployment and Operations | EP-16 | 3 | 0 | 0% |
+| INIT-15 | Documentation and Knowledge Transfer | EP-21 | 3 | 0 | 0% |
+| INIT-16 | Production Readiness and Final Acceptance | EP-18 | 2 | 0 | 0% |
+
+## Gates
+
+A gate becomes READY only when every dependency is DONE, which includes independent review of every security-relevant ticket beneath it.
+
+| Gate | Kind | Title | Status | Dependencies not yet DONE | Security-relevant work beneath it not yet accepted |
+|---|---|---|---|---|---|
+| SB-055 | security-integration | MCP tools: health, search, retrieve, projects | BACKLOG | SB-054, SB-042, SB-053 | SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054 |
+| SB-056 | security-integration | MCP tools: sessions, session context, artifacts, propose | BACKLOG | SB-054, SB-046, SB-048, SB-053 | SB-011, SB-012, SB-026, SB-027, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054 |
+| SB-058 | security-integration | Approval surface: owner login, proposal view, bound decision | BACKLOG | SB-048, SB-050 | SB-012, SB-026, SB-048, SB-050 |
+| SB-060 | security-integration | Apply on approval: one transaction, single use, expiry | BACKLOG | SB-058 | SB-012, SB-026, SB-048, SB-050, SB-058 |
+| SB-070 | release | Consolidated deployment authorisation request | BACKLOG | SB-061, SB-067 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-071 | release | Deploy to the authorised environment | BACKLOG | SB-069 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-074 | release | End-to-end scenarios UX-A to UX-J | BACKLOG | SB-056, SB-060, SB-066, SB-071 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-078 | release | Production-readiness assessment and reviewer package | BACKLOG | SB-074, SB-076 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065, SB-076 |
 
 ## By wave (milestones)
 
 | Wave | Tickets | Done | In review | Ready | Blocked |
 |---|---|---|---|---|---|
 | 0 | 7 | 7 | 0 | 0 | 0 |
-| 1 | 20 | 2 | 3 | 2 | 0 |
-| 2 | 10 | 0 | 0 | 0 | 0 |
-| 3 | 12 | 0 | 0 | 2 | 0 |
-| 4 | 6 | 0 | 0 | 0 | 0 |
+| 1 | 21 | 2 | 3 | 3 | 0 |
+| 2 | 11 | 0 | 0 | 0 | 0 |
+| 3 | 14 | 0 | 0 | 2 | 0 |
+| 4 | 15 | 0 | 0 | 0 | 0 |
 | 5 | 5 | 0 | 0 | 0 | 0 |
 | 6 | 3 | 0 | 0 | 0 | 0 |
-| 7 | 3 | 0 | 0 | 0 | 0 |
+| 7 | 4 | 0 | 0 | 0 | 0 |
 
 ## Blocked
 
@@ -68,7 +86,7 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 ## Owner decisions outstanding
 
 - Provider, region and monthly cost ceiling (requested through SB-070)
-- Name a reviewer for security-relevant tickets (PD-004)
+- Name a reviewer for security-relevant tickets (PD-004). Until then SB-010, SB-011 and SB-012 stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 cannot open (BLK-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
 - Reconsider repository visibility: it is public by decision OD-001; the specification recommends private

@@ -1,0 +1,25 @@
+# Independent review of pull request #1: findings register
+
+Author: Mohammed Alsaleh · Recorded 2026-11-10 · Source: an external review commissioned by the owner and supplied in the session. The findings are summarised here; the reviewer's text is not reproduced.
+
+The reviewer confirmed that the repository, the pull request, the 66-ticket backlog and a passing CI run exist, described the review as targeted rather than a complete security audit, and asked for five corrections before merging. The identifiers below use the prefix `RV-` because `CR-` already names the cloud requirements.
+
+"Fixed" below means implemented and tested by the author of the code. **None of these corrections has been examined by the reviewer yet**; each stays open as a GitHub issue (RV-01 #68, RV-02 #69, RV-03 #70, RV-04 #71, RV-05 #72) until the owner or the reviewer confirms it.
+
+| ID | Severity | Finding | Correction | Tests | State |
+|---|---|---|---|---|---|
+| RV-01 | High | `canonical.py` had no complete serialisation contract: key collisions after normalisation were detected only after the object was built, duplicate keys in received JSON were not rejected, and unsupported values were loosely handled | A documented profile `c1` (`docs/design/canonical-profile.md`); values outside it are rejected rather than coerced; collisions are checked key by key; a strict parsing boundary `parse_proposal_json`; batch members validated | `tests/unit/test_canonical.py`: normalisation collisions, duplicate keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors | Fixed, awaiting review. SB-012 stays IN REVIEW |
+| RV-02 | High | The traceability report said 72 covered and 73 without a ticket out of 148 (145). Three requirements deferred by the specification were counted in neither figure, and about half the inventory had no ticket | Every requirement is now covered, deferred or excluded, with a written justification for the last two; the validator fails on anything else; the report prints the classes and their total. 62 requirements were mapped to tickets (31 existing tickets extended with acceptance criteria, and 14 new tickets), 11 excluded as superseded, 3 deferred | `tests/test_backlog.py`: classes add up to 148; report totals add up; missing, conflicting, unjustified and unknown entries are rejected | Fixed |
+| RV-03 | High | A dependency that was only IN REVIEW satisfied every dependent ticket, so security-sensitive work could advance on unreviewed foundations | Three rules: ordinary work may start provisionally on dependencies that are DONE or IN REVIEW and is marked provisional; a gate ticket (security-integration or release) becomes READY only when every dependency is DONE; nothing is DONE before its dependencies, and a security-relevant ticket is DONE only with a recorded review by someone other than the implementer | `tests/test_backlog.py`: provisional readiness, closed gates, transitive security dependencies, DONE ordering, reviewer rule | Fixed |
+| RV-04 | Medium | INIT-02, INIT-12 and INIT-15 had no tickets | Three epics (EP-19, EP-20, EP-21); four existing tickets moved to them and six new ones added; the validator rejects an initiative or epic without tickets | `tests/test_backlog.py` | Fixed |
+| RV-05 | Medium | The mirror to GitHub Issues was one-way with no detection of edits made on GitHub | `backlog.json` stays the only place to change a ticket. The mirror records a fingerprint of what it pushed; `--check` reports any issue edited on GitHub; a push refuses to overwrite such an edit without `--accept-backlog`; a forgotten push fails the test suite; CI runs the comparison against GitHub | `tests/test_backlog.py`: no drift, field-by-field drift, unpushed changes, committed record matches the backlog | Fixed |
+
+## What remains open after these corrections
+
+1. **No independent reviewer is named.** SB-010, SB-011 and SB-012 stay IN REVIEW, and the security-integration gates (SB-055, SB-056, SB-058, SB-060) cannot open until their security-relevant prerequisites are reviewed (blocker BLK-004).
+2. The reviewer's observation that the classification and memory-tier modules are domain rules, not complete controls, stands. Expiry, ceilings and tier separation still have to be enforced and tested in the database and service (SB-027, SB-042, SB-046, SB-061, SB-079).
+3. The obligations in section 5 of the canonical profile are not yet implemented: the proposal engine and approval surface do not exist.
+4. Coverage means a ticket is responsible for a requirement. Of 134 covered requirements, most are planned, not built; the traceability report gives the split.
+5. Requirement CR-39 is covered only for the K1 ceiling. Elevation is not built, by the first-release profile and by the repository boundary.
+6. The drift check compares GitHub with the branch that was last pushed to the mirror. With more than one active branch it will report the other branch's state as drift.
+7. PostgreSQL behaviour, the MCP server, authentication and deployment are untouched by this pull request and remain unverified.

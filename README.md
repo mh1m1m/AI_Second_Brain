@@ -5,6 +5,8 @@ A cloud-hosted personal knowledge service used from Claude Code through one remo
 - **Where things stand:** `backlog/DASHBOARD.md`
 - **What to do next:** `python tools/backlog.py next`
 - **What is blocked and why:** `docs/BLOCKERS.md`
+- **Which requirement is covered, deferred or excluded:** `backlog/TRACEABILITY.md`
+- **Reviews and what they found:** `docs/reviews/`
 - **Rules for any session working here:** `CLAUDE.md`
 - **Specification archives (unchanged):** `docs/spec/archives/`
 

@@ -6,9 +6,29 @@ Hierarchy: program → initiative (`INIT-NN`) → epic (`EP-NN`) → ticket (`SB
 
 States: BACKLOG, READY, IN PROGRESS, IN REVIEW, TESTING, BLOCKED, DONE, REOPENED.
 
-- A ticket becomes READY automatically when every dependency is DONE or IN REVIEW. IN REVIEW means implemented and tested with review pending, so dependent work may start; a release still needs DONE.
-- DONE needs evidence and the definition of done. Writing code is not DONE.
-- Security-relevant tickets stop at IN REVIEW until someone other than the author reviews them (decision PD-004).
-- BLOCKED needs a reason, recorded in `docs/BLOCKERS.md`.
+## Readiness, review and gates (decisions PD-004 and PD-008)
+
+Each ticket declares `security_relevant` (true or false) and `gate` (empty, `security-integration` or `release`). The validator enforces:
+
+1. **Provisional readiness.** An ordinary ticket becomes READY when every dependency is DONE or IN REVIEW. If any security-relevant ticket beneath it, directly or through other tickets, is not DONE, the board marks it *provisional until reviewed* and names what it is waiting for. Provisional work may be written and tested; it is not accepted.
+2. **Gates.** A gate ticket becomes READY only when every dependency is DONE. Because of rule 3 this means every security-relevant ticket beneath it has been reviewed and accepted. Security-integration gates are the points where separately built controls are joined into something a connector or the owner can reach; release gates are the deployment request, deployment, end-to-end acceptance and the readiness assessment.
+3. **Acceptance.** No ticket is DONE while a dependency is not DONE. A security-relevant ticket stops at IN REVIEW and is DONE only with a recorded review by someone other than the implementer: `set-status SB-NNN DONE --reviewer NAME --review-ref TEXT`.
+
+DONE also needs evidence and the definition of done; writing code is not DONE. BLOCKED needs a reason, recorded in `docs/BLOCKERS.md`.
+
+## Requirements (decision PD-011)
+
+The inventory is `docs/spec/transition-data.json` (148 requirements). Each is in exactly one class: covered (cited by at least one ticket), deferred or excluded (an entry in `requirement_dispositions` with a written justification; an exclusion names the covered requirement that replaces it where one exists). `validate` fails on a requirement in no class, in two classes, or cited but unknown. `TRACEABILITY.md` prints the classes, their total, and how much of the covered set is accepted, in review or only planned.
+
+Every initiative and every epic must have at least one ticket.
+
+## GitHub Issues (decision PD-009)
+
+Change tickets in `backlog.json` only, then run `python tools/github_mirror.py OWNER/REPO` before committing. Issues are a read-only mirror plus a place for comments.
+
+- `python tools/github_mirror.py OWNER/REPO --check` reports any issue whose title, state, managed labels, milestone or body was changed on GitHub, any mirrored issue that is missing, and any hand-made issue that looks like a ticket. It changes nothing. Run it at the start of a session; CI runs it too.
+- A push refuses to overwrite an issue edited on GitHub. To reconcile: read the report, make the change in `backlog.json` if the edit was right, then push with `--accept-backlog`.
+- `backlog/github-issues.json` records what was pushed. A backlog change that was not pushed fails the test suite.
+- The mirror reflects the branch that pushed last. With one line of development that is the working branch.
 
 Elaboration is progressive: waves 0 and 1 are detailed; later tickets are outlines and are detailed when their wave becomes current.

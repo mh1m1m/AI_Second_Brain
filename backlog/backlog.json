@@ -86,7 +86,7 @@
   },
   {
    "id": "EP-14",
-   "title": "GitHub references and bootstrap skill",
+   "title": "GitHub repository references",
    "initiative": "INIT-09"
   },
   {
@@ -108,6 +108,21 @@
    "id": "EP-18",
    "title": "Documentation and readiness",
    "initiative": "INIT-16"
+  },
+  {
+   "id": "EP-19",
+   "title": "Cloud runtime and infrastructure",
+   "initiative": "INIT-02"
+  },
+  {
+   "id": "EP-20",
+   "title": "Claude Code skills and developer experience",
+   "initiative": "INIT-12"
+  },
+  {
+   "id": "EP-21",
+   "title": "Documentation and knowledge transfer",
+   "initiative": "INIT-15"
   }
  ],
  "tickets": [
@@ -135,7 +150,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; pip install, ruff and pytest run locally",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-002",
@@ -163,7 +180,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; tests/test_backlog.py (6 tests) pass; validate and render --check pass",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-003",
@@ -190,7 +209,9 @@
    "status": "DONE",
    "blocked_reason": "Workflow written (commit e1e9fda) but cannot be verified until a repository exists (BLK-001)",
    "evidence": "CI passed on GitHub for push and pull request: https://github.com/mh1m1m/AI_Second_Brain/actions/runs/42771366231",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-004",
@@ -218,7 +239,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; docs/decisions/DECISION-LOG.md, docs/BLOCKERS.md, docs/authorization/",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-005",
@@ -246,7 +269,9 @@
    "status": "DONE",
    "blocked_reason": "A session cannot create a repository; owner action needed (BLK-001)",
    "evidence": "Branch sb/wave-0-foundation pushed; pull request #1 open; CI green (https://github.com/mh1m1m/AI_Second_Brain/actions/runs/42771366231); repository public by OD-001. Merge to main is the owner's",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-006",
@@ -276,7 +301,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "66 issues, 21 labels and 8 milestones created in mh1m1m/AI_Second_Brain by tools/github_mirror.py; mapping in backlog/github-issues.json; payload test passes",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-007",
@@ -300,7 +327,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "2026-11-10: REST repository-scoped calls work; account-level calls and repository creation refused (sessions bound to configured repositories); GraphQL, and so Projects, unavailable (HTTP 403). Recorded as BLK-001 and BLK-002",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-010",
@@ -333,7 +362,9 @@
    "status": "IN REVIEW",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004)",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-011",
@@ -364,7 +395,9 @@
    "status": "IN REVIEW",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; tests/unit/test_domain.py: tier rules, envelope, expiry boundary. Awaiting review (PD-004)",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-012",
@@ -388,15 +421,21 @@
     "Equal payloads hash equally regardless of key order",
     "any change to payload, dependencies or class changes the hash",
     "a batch digest depends on order",
-    "non-JSON values are rejected"
+    "non-JSON values are rejected",
+    "The canonical profile is documented and every value outside it is rejected, not coerced",
+    "received JSON with duplicate keys, floats or invalid encoding is rejected at the parsing boundary",
+    "keys that collide after normalisation are rejected before the object is built",
+    "golden vectors pin the profile to its version"
    ],
    "tests": "Unit and property-style tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "commit e1e9fda; tests/unit/test_domain.py: key-order and Unicode-form invariance, change sensitivity, batch digest. Awaiting review (PD-004)",
-   "elaborated": true
+   "evidence": "commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004)",
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-020",
@@ -423,7 +462,9 @@
    "status": "READY",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-021",
@@ -454,7 +495,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-022",
@@ -484,7 +527,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-023",
@@ -497,7 +542,8 @@
    "objective": "Forward-only, checksummed migrations.",
    "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
    "requirements": [
-    "FR-OPS-006"
+    "FR-OPS-006",
+    "FR-AGT-005"
    ],
    "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
    "depends_on": [
@@ -506,7 +552,8 @@
    "acceptance": [
     "A changed applied migration is refused",
     "a failed migration leaves the schema unchanged",
-    "versions are recorded"
+    "versions are recorded",
+    "Dry-run prints the planned migration and changes nothing"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -514,7 +561,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-024",
@@ -545,7 +594,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-025",
@@ -560,14 +611,16 @@
    "requirements": [
     "FR-MEM-001",
     "FR-MEM-002",
-    "FR-MEM-006"
+    "FR-MEM-006",
+    "FR-MEM-004"
    ],
    "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
    "depends_on": [
     "SB-022"
    ],
    "acceptance": [
-    "Illegal state transitions, verification without evidence and edits to revisions are refused from raw SQL"
+    "Illegal state transitions, verification without evidence and edits to revisions are refused from raw SQL",
+    "Each record has one kind and one epistemic type, and verification is restricted by type"
    ],
    "tests": "Port of the IR1.1 constraint probes.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -575,7 +628,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-026",
@@ -602,11 +657,13 @@
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-027",
@@ -632,11 +689,13 @@
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-028",
@@ -650,7 +709,9 @@
    "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
    "requirements": [
     "FR-SEC-005",
-    "CR-17"
+    "CR-17",
+    "FR-AGT-006",
+    "NFR-005"
    ],
    "architecture": "IR1.1 SECURITY-ARCHITECTURE; CR-17",
    "depends_on": [
@@ -658,7 +719,8 @@
    ],
    "acceptance": [
     "Each event hashes its predecessor",
-    "verification detects an edited, removed or reordered event"
+    "verification detects an edited, removed or reordered event",
+    "State changes and denials are recorded with actor, time and outcome"
    ],
    "tests": "Integration tests with tampering.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -666,7 +728,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-029",
@@ -692,11 +756,13 @@
    ],
    "tests": "The suite.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-030",
@@ -727,7 +793,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; tests/unit/test_text.py: outputs equal the recorded IR1.1 probe outputs for all 17 queries; idempotence and control-character tests pass",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-031",
@@ -758,7 +826,9 @@
    "status": "DONE",
    "blocked_reason": "",
    "evidence": "commit e1e9fda; tests/unit/test_text.py: stems equal the recorded IR1.1 outputs; broken-plural limitation asserted",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-032",
@@ -788,7 +858,9 @@
    "status": "READY",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-033",
@@ -802,7 +874,8 @@
    "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
    "requirements": [
     "FR-ING-002",
-    "CR-10"
+    "CR-10",
+    "FR-ING-004"
    ],
    "architecture": "CN1.1 07; ADR-026",
    "depends_on": [
@@ -811,7 +884,8 @@
    ],
    "acceptance": [
     "A second ingest of identical bytes stores nothing new",
-    "an altered object is detected"
+    "an altered object is detected",
+    "Identical bytes are detected as a duplicate and return the existing original"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -819,7 +893,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-034",
@@ -835,7 +911,8 @@
     "CR-25",
     "CR-26",
     "FR-ING-005",
-    "FR-SEC-008"
+    "FR-SEC-008",
+    "FR-SEC-004"
    ],
    "architecture": "CN1.1 21; A1 05",
    "depends_on": [
@@ -846,15 +923,18 @@
     "Unclassified input is held at K2",
     "K3 is refused without a clearance record",
     "K4 and secret-like content are refused",
-    "limits on size and type hold"
+    "limits on size and type hold",
+    "Instruction-bearing and configuration files are refused at intake"
    ],
    "tests": "Unit and integration tests with hostile fixtures.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-035",
@@ -869,7 +949,8 @@
    "requirements": [
     "FR-ING-003",
     "FR-ING-007",
-    "FR-ING-008"
+    "FR-ING-008",
+    "FR-ING-009"
    ],
    "architecture": "CN1.1 21; A1 05",
    "depends_on": [
@@ -878,7 +959,9 @@
    "acceptance": [
     "Each passage has a stable locator into its original",
     "extractor name and version are recorded",
-    "Arabic and mixed text survive unchanged"
+    "Arabic and mixed text survive unchanged",
+    "A source that yields little or no text is flagged, not silently indexed",
+    "input size and parsing time are bounded"
    ],
    "tests": "Fixture tests in Arabic and English.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -886,7 +969,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-036",
@@ -900,14 +985,17 @@
    "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
    "requirements": [
     "CR-11",
-    "NFR-002"
+    "NFR-002",
+    "FR-AGT-002",
+    "FR-OPS-005"
    ],
    "architecture": "CN1.1 07; ADR-026",
    "depends_on": [
     "SB-033"
    ],
    "acceptance": [
-    "Interruptions at each step leave either nothing or an orphan object that reconciliation removes"
+    "Interruptions at each step leave either nothing or an orphan object that reconciliation removes",
+    "An interrupted ingest resumes or rolls back without duplicate effects, and start-up reconciles pending operations"
    ],
    "tests": "Fault-injection tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -915,7 +1003,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": true
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-040",
@@ -929,7 +1019,9 @@
    "scope": "Outline. To be elaborated when wave 2 becomes current.",
    "requirements": [
     "FR-RET-001",
-    "FR-RET-007"
+    "FR-RET-007",
+    "FR-OPS-001",
+    "NFR-021"
    ],
    "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
    "depends_on": [
@@ -938,7 +1030,8 @@
     "SB-031"
    ],
    "acceptance": [
-    "Index is maintained with the passages and rebuilt deterministically"
+    "Index is maintained with the passages and rebuilt deterministically",
+    "The index can be dropped and rebuilt from stored passages with identical results"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -946,7 +1039,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-041",
@@ -962,7 +1057,8 @@
     "FR-RET-001",
     "FR-RET-004",
     "FR-RET-005",
-    "CR-40"
+    "CR-40",
+    "NFR-015"
    ],
    "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
    "depends_on": [
@@ -971,7 +1067,8 @@
    "acceptance": [
     "Deterministic order",
     "six outcome classes",
-    "per-call budget enforced"
+    "per-call budget enforced",
+    "Results stay within the per-call output budget"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -979,7 +1076,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-042",
@@ -996,7 +1095,8 @@
     "CR-36",
     "CR-37",
     "CR-46",
-    "CR-47"
+    "CR-47",
+    "CR-39"
    ],
    "architecture": "CN1.1 22, 23; A1 04",
    "depends_on": [
@@ -1006,7 +1106,8 @@
    ],
    "acceptance": [
     "No content, count or hint leaks",
-    "a claimed project never widens access"
+    "a claimed project never widens access",
+    "No elevation path exists: a K1 grant never reads K2"
    ],
    "tests": "Security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1014,7 +1115,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-043",
@@ -1045,7 +1148,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-044",
@@ -1059,14 +1164,18 @@
    "scope": "Outline. To be elaborated when wave 2 becomes current.",
    "requirements": [
     "FR-RET-008",
-    "NFR-007"
+    "NFR-007",
+    "NFR-001",
+    "NFR-008",
+    "NFR-012"
    ],
    "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE §9",
    "depends_on": [
     "SB-041"
    ],
    "acceptance": [
-    "Recall, precision, citation validity and abstention are computed per language and stratum"
+    "Recall, precision, citation validity and abstention are computed per language and stratum",
+    "Search latency, ingestion throughput and corpus size are measured and recorded against stated thresholds"
    ],
    "tests": "Harness self-test.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1074,7 +1183,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-045",
@@ -1089,7 +1200,8 @@
    "requirements": [
     "CR-06",
     "CR-07",
-    "CR-37"
+    "CR-37",
+    "FR-PRJ-002"
    ],
    "architecture": "A1 03; CN1.1 09",
    "depends_on": [
@@ -1097,7 +1209,8 @@
    ],
    "acceptance": [
     "A project's policy defaults from its class",
-    "repository references carry no credential"
+    "repository references carry no credential",
+    "A project is registered with a stable identifier and a classification"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1105,7 +1218,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-046",
@@ -1132,11 +1247,13 @@
    ],
    "tests": "Integration and security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-047",
@@ -1152,7 +1269,11 @@
     "FR-MEM-001",
     "FR-MEM-005",
     "FR-MEM-006",
-    "FR-MEM-008"
+    "FR-MEM-008",
+    "FR-KNW-002",
+    "FR-MEM-007",
+    "FR-MEM-011",
+    "FR-MEM-012"
    ],
    "architecture": "A1 03; CN1.1 09",
    "depends_on": [
@@ -1161,7 +1282,10 @@
    "acceptance": [
     "Supersession keeps history",
     "conflicts are kept",
-    "as-of reconstruction works"
+    "as-of reconstruction works",
+    "Correction creates a revision; competing claims are kept and marked",
+    "consolidation is proposed only for identical subject, predicate, value and overlapping validity",
+    "owner-attested records are accepted only through the owner-authenticated surface"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1169,7 +1293,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-048",
@@ -1183,7 +1309,10 @@
    "scope": "Outline. To be elaborated when wave 2 becomes current.",
    "requirements": [
     "FR-AGT-003",
-    "CR-33"
+    "CR-33",
+    "FR-MEM-003",
+    "FR-AGT-001",
+    "FR-AGT-002"
    ],
    "architecture": "CN1.1 22; A1 05",
    "depends_on": [
@@ -1193,7 +1322,9 @@
    "acceptance": [
     "Limits refuse without discarding",
     "duplicates return the existing proposal",
-    "stale proposals conflict"
+    "stale proposals conflict",
+    "Memory candidates from a session enter only as proposals",
+    "a repeated submission with the same idempotency key has no second effect"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1201,7 +1332,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-049",
@@ -1230,7 +1363,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-050",
@@ -1257,7 +1392,9 @@
    "status": "READY",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-051",
@@ -1271,7 +1408,11 @@
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
     "CR-01",
-    "CR-12"
+    "CR-12",
+    "FR-SEC-002",
+    "FR-OPS-004",
+    "FR-OPS-008",
+    "NFR-014"
    ],
    "architecture": "CN1.1 08; A1 03",
    "depends_on": [
@@ -1280,7 +1421,10 @@
    "acceptance": [
     "Starts from environment configuration",
     "health endpoint",
-    "no secret in repository"
+    "no secret in repository",
+    "Structured logs carry no content",
+    "secrets are read only from the environment and are never logged",
+    "health reports named checks"
    ],
    "tests": "Unit tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1288,7 +1432,9 @@
    "status": "READY",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-052",
@@ -1320,7 +1466,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-053",
@@ -1335,7 +1483,8 @@
    "requirements": [
     "CR-03",
     "CR-05",
-    "CR-36"
+    "CR-36",
+    "FR-SEC-007"
    ],
    "architecture": "CN1.1 22, 23; A1 04",
    "depends_on": [
@@ -1343,7 +1492,8 @@
     "SB-026"
    ],
    "acceptance": [
-    "No connector token can approve, elevate or administer"
+    "No connector token can approve, elevate or administer",
+    "No grant or integration is active unless the owner created it"
    ],
    "tests": "Security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1351,7 +1501,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-054",
@@ -1366,22 +1518,28 @@
    "requirements": [
     "CR-02",
     "CR-16",
-    "CR-19"
+    "CR-19",
+    "FR-SEC-003",
+    "FR-SEC-007"
    ],
    "architecture": "CN1.1 08; A1 03",
    "depends_on": [
     "SB-051"
    ],
    "acceptance": [
-    "Every tool has input and output schemas, limits and stable errors"
+    "Every tool has input and output schemas, limits and stable errors",
+    "The server exposes no tool that approves, elevates or administers",
+    "returned content is delimited as untrusted data"
    ],
    "tests": "Contract tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-055",
@@ -1395,7 +1553,9 @@
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
     "CR-09",
-    "CR-27"
+    "CR-27",
+    "FR-SEC-003",
+    "FR-OPS-004"
    ],
    "architecture": "CN1.1 08; A1 03",
    "depends_on": [
@@ -1404,15 +1564,19 @@
     "SB-053"
    ],
    "acceptance": [
-    "Results are labelled by tier and project and stay inside budgets"
+    "Results are labelled by tier and project and stay inside budgets",
+    "Source text is returned as data inside an envelope, never as instruction",
+    "the health tool reports named checks without content"
    ],
    "tests": "Contract and security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": "security-integration"
   },
   {
    "id": "SB-056",
@@ -1426,7 +1590,8 @@
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
     "CR-08",
-    "CR-42"
+    "CR-42",
+    "FR-MEM-003"
    ],
    "architecture": "CN1.1 08; A1 03",
    "depends_on": [
@@ -1436,15 +1601,18 @@
     "SB-053"
    ],
    "acceptance": [
-    "Session context is returned only by its own tool, enveloped"
+    "Session context is returned only by its own tool, enveloped",
+    "Nothing submitted by a session is written as approved knowledge"
    ],
    "tests": "Contract and security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": "security-integration"
   },
   {
    "id": "SB-057",
@@ -1459,7 +1627,10 @@
    "requirements": [
     "CR-16",
     "CR-17",
-    "CR-41"
+    "CR-41",
+    "FR-RET-006",
+    "FR-AGT-006",
+    "NFR-005"
    ],
    "architecture": "CN1.1 22, 23; A1 04",
    "depends_on": [
@@ -1467,7 +1638,8 @@
    ],
    "acceptance": [
     "Limits refuse and record",
-    "unusual volume alerts"
+    "unusual volume alerts",
+    "Every call and every denial produces an audit event with actor, correlation identifier, time and outcome"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1475,7 +1647,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-058",
@@ -1490,7 +1664,10 @@
    "requirements": [
     "CR-30",
     "CR-31",
-    "CR-04"
+    "CR-04",
+    "FR-MEM-012",
+    "NFR-016",
+    "NFR-017"
    ],
    "architecture": "CN1.1 22; A1 05",
    "depends_on": [
@@ -1499,7 +1676,9 @@
    ],
    "acceptance": [
     "No connector credential is accepted",
-    "the decision is bound to the stored hash"
+    "the decision is bound to the stored hash",
+    "Usable by keyboard and without colour, with right-to-left text rendered correctly",
+    "the owner can record an owner-attested memory here, without Claude Code"
    ],
    "tests": "Security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1507,7 +1686,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": "security-integration"
   },
   {
    "id": "SB-059",
@@ -1520,7 +1701,8 @@
    "objective": "Resistant to forgery, framing and deceptive text.",
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
-    "CR-32"
+    "CR-32",
+    "FR-OBS-003"
    ],
    "architecture": "CN1.1 22; A1 05",
    "depends_on": [
@@ -1528,7 +1710,9 @@
    ],
    "acceptance": [
     "Forged and framed requests fail",
-    "direction-override characters are shown"
+    "direction-override characters are shown",
+    "Mixed-direction text is displayed with direction-override characters made visible",
+    "Invisible and direction-changing characters in proposal text are made visible before the owner decides (the canonical hash does not remove them from values)"
    ],
    "tests": "Security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1536,7 +1720,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-060",
@@ -1550,7 +1736,8 @@
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
     "CR-33",
-    "CR-44"
+    "CR-44",
+    "FR-AGT-001"
    ],
    "architecture": "CN1.1 22; A1 05",
    "depends_on": [
@@ -1558,7 +1745,8 @@
    ],
    "acceptance": [
     "Replay and expiry are refused",
-    "apply and consume are atomic"
+    "apply and consume are atomic",
+    "No consequential write happens without a consumed approval"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1566,7 +1754,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": "security-integration"
   },
   {
    "id": "SB-061",
@@ -1580,7 +1770,8 @@
    "scope": "Outline. To be elaborated when wave 3 becomes current.",
    "requirements": [
     "NFR-019",
-    "CR-05"
+    "CR-05",
+    "CR-39"
    ],
    "architecture": "A1 06; CN1.1 16, 24",
    "depends_on": [
@@ -1589,7 +1780,8 @@
     "SB-060"
    ],
    "acceptance": [
-    "All CN1.1 security tests that apply to the first release pass"
+    "All CN1.1 security tests that apply to the first release pass",
+    "A test shows that no call sequence raises a connection above K1"
    ],
    "tests": "The suite.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1597,7 +1789,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-062",
@@ -1626,13 +1820,15 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-063",
    "title": "Bootstrap skill and project instruction template",
    "type": "feature",
-   "epic": "EP-14",
+   "epic": "EP-20",
    "wave": 4,
    "priority": "P1",
    "points": 2,
@@ -1652,7 +1848,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-064",
@@ -1661,13 +1859,21 @@
    "epic": "EP-15",
    "wave": 4,
    "priority": "P1",
-   "points": 5,
+   "points": 8,
    "objective": "A complete, repeatable export.",
    "scope": "Outline. To be elaborated when wave 4 becomes current.",
    "requirements": [
     "CR-15",
     "CR-21",
-    "CR-28"
+    "CR-28",
+    "FR-KNW-003",
+    "FR-KNW-009",
+    "FR-OBS-001",
+    "FR-OBS-002",
+    "FR-OBS-003",
+    "NFR-003",
+    "NFR-016",
+    "NFR-017"
    ],
    "architecture": "CN1.1 11; A1 05",
    "depends_on": [
@@ -1675,7 +1881,10 @@
    ],
    "acceptance": [
     "Identical state gives identical bytes",
-    "class rules are applied"
+    "class rules are applied",
+    "Notes are generated from versioned templates and read in a plain Markdown reader without plugins",
+    "the export includes index pages for the proposal queue, review queue, projects and decisions",
+    "right-to-left content is preserved byte for byte"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1683,7 +1892,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-065",
@@ -1697,7 +1908,8 @@
    "scope": "Outline. To be elaborated when wave 4 becomes current.",
    "requirements": [
     "CR-14",
-    "CR-48"
+    "CR-48",
+    "FR-OPS-003"
    ],
    "architecture": "CN1.1 11; A1 05",
    "depends_on": [
@@ -1706,15 +1918,18 @@
    ],
    "acceptance": [
     "Ciphertext verifies against the manifest",
-    "the job holds no private key"
+    "the job holds no private key",
+    "The backup has a manifest listing contents, classes and checksums"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-066",
@@ -1728,14 +1943,17 @@
    "scope": "Outline. To be elaborated when wave 4 becomes current.",
    "requirements": [
     "CR-14",
-    "FR-OPS-002"
+    "FR-OPS-002",
+    "FR-OPS-010",
+    "NFR-018"
    ],
    "architecture": "CN1.1 11; A1 05",
    "depends_on": [
     "SB-065"
    ],
    "acceptance": [
-    "Integrity, foreign keys, audit chain and sampled originals verify"
+    "Integrity, foreign keys, audit chain and sampled originals verify",
+    "The restored copy is verified against the manifest"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1743,7 +1961,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-067",
@@ -1756,14 +1976,16 @@
    "objective": "Recorded evidence that recovery works before any real data.",
    "scope": "Outline. To be elaborated when wave 4 becomes current.",
    "requirements": [
-    "CR-14"
+    "CR-14",
+    "NFR-006"
    ],
    "architecture": "CN1.1 11; A1 05",
    "depends_on": [
     "SB-066"
    ],
    "acceptance": [
-    "Drill record with times and results"
+    "Drill record with times and results",
+    "Recovery time and recovery point are measured against the stated objectives"
    ],
    "tests": "The drill.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1771,25 +1993,30 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-068",
    "title": "Container image and reproducible build",
    "type": "task",
-   "epic": "EP-16",
+   "epic": "EP-19",
    "wave": 5,
    "priority": "P1",
    "points": 3,
    "objective": "The same artefact builds everywhere.",
    "scope": "Outline. To be elaborated when wave 5 becomes current.",
-   "requirements": [],
+   "requirements": [
+    "NFR-011"
+   ],
    "architecture": "CN1.1 14, 15, 20",
    "depends_on": [
     "SB-051"
    ],
    "acceptance": [
-    "Pinned, hash-locked build"
+    "Pinned, hash-locked build",
+    "Runtime dependencies are few, pinned and hash-locked"
    ],
    "tests": "Build test.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1797,7 +2024,42 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-069",
+   "title": "Infrastructure definitions for the approved provider",
+   "type": "task",
+   "epic": "EP-19",
+   "wave": 5,
+   "priority": "P1",
+   "points": 5,
+   "objective": "Infrastructure as code.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [
+    "CR-12",
+    "CR-13"
+   ],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-068",
+    "SB-070"
+   ],
+   "acceptance": [
+    "Private database and storage",
+    "no public bucket"
+   ],
+   "tests": "Plan review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-070",
@@ -1827,38 +2089,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
-  },
-  {
-   "id": "SB-069",
-   "title": "Infrastructure definitions for the approved provider",
-   "type": "task",
-   "epic": "EP-16",
-   "wave": 5,
-   "priority": "P1",
-   "points": 5,
-   "objective": "Infrastructure as code.",
-   "scope": "Outline. To be elaborated when wave 5 becomes current.",
-   "requirements": [
-    "CR-12",
-    "CR-13"
-   ],
-   "architecture": "CN1.1 14, 15, 20",
-   "depends_on": [
-    "SB-068",
-    "SB-070"
-   ],
-   "acceptance": [
-    "Private database and storage",
-    "no public bucket"
-   ],
-   "tests": "Plan review.",
-   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
-   "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
-   "blocked_reason": "",
-   "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": "release"
   },
   {
    "id": "SB-071",
@@ -1886,7 +2119,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": "release"
   },
   {
    "id": "SB-072",
@@ -1900,14 +2135,17 @@
    "scope": "Outline. To be elaborated when wave 5 becomes current.",
    "requirements": [
     "CR-20",
-    "CR-41"
+    "CR-41",
+    "NFR-014",
+    "NFR-015"
    ],
    "architecture": "CN1.1 14, 15, 20",
    "depends_on": [
     "SB-071"
    ],
    "acceptance": [
-    "Alarms fire in forced tests"
+    "Alarms fire in forced tests",
+    "Health and usage are visible without content"
    ],
    "tests": "Forced-failure tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1915,7 +2153,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-073",
@@ -1943,7 +2183,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-074",
@@ -1955,7 +2197,9 @@
    "points": 8,
    "objective": "The product does what it is for.",
    "scope": "Outline. To be elaborated when wave 6 becomes current.",
-   "requirements": [],
+   "requirements": [
+    "NFR-013"
+   ],
    "architecture": "A1 06; CN1.1 16, 24",
    "depends_on": [
     "SB-056",
@@ -1964,7 +2208,8 @@
     "SB-071"
    ],
    "acceptance": [
-    "Each scenario has a recorded pass or fail"
+    "Each scenario has a recorded pass or fail",
+    "Common journeys need few steps and every error says what to do next"
    ],
    "tests": "The scenarios.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1972,7 +2217,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": "release"
   },
   {
    "id": "SB-075",
@@ -1999,7 +2246,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-076",
@@ -2025,13 +2274,15 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
   },
   {
    "id": "SB-077",
    "title": "Operator documentation and runbooks",
    "type": "task",
-   "epic": "EP-18",
+   "epic": "EP-21",
    "wave": 7,
    "priority": "P1",
    "points": 5,
@@ -2051,7 +2302,9 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
   },
   {
    "id": "SB-078",
@@ -2079,19 +2332,594 @@
    "status": "BACKLOG",
    "blocked_reason": "",
    "evidence": "",
-   "elaborated": false
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": "release"
+  },
+  {
+   "id": "SB-079",
+   "title": "Deterministic scheduled jobs: note expiry, proposal expiry, orphan sweep, revalidation flags",
+   "type": "task",
+   "epic": "EP-19",
+   "wave": 3,
+   "priority": "P1",
+   "points": 5,
+   "objective": "Housekeeping runs on a schedule, calls no model and can be re-run safely.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-24",
+    "FR-AGT-008",
+    "FR-MEM-010"
+   ],
+   "architecture": "CN1.1 08; ADR-001; A1 03",
+   "depends_on": [
+    "SB-036",
+    "SB-046",
+    "SB-047",
+    "SB-048"
+   ],
+   "acceptance": [
+    "Expired unreviewed notes and expired proposals are removed or closed on schedule",
+    "records due for revalidation are flagged, not changed",
+    "every job is idempotent and audited",
+    "the service has no model client and a test fails if one is added"
+   ],
+   "tests": "Integration tests with a controlled clock.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
+  },
+  {
+   "id": "SB-080",
+   "title": "Source lifecycle: new versions and withdrawal",
+   "type": "feature",
+   "epic": "EP-07",
+   "wave": 2,
+   "priority": "P1",
+   "points": 3,
+   "objective": "A source can gain a version or be withdrawn without losing history.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-ING-006",
+    "FR-ING-011"
+   ],
+   "architecture": "CN1.1 08, 09",
+   "depends_on": [
+    "SB-035"
+   ],
+   "acceptance": [
+    "A changed file for a known source registers a new version and keeps earlier ones",
+    "a withdrawn source leaves search and its dependent records are flagged for review",
+    "originals are never altered"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-081",
+   "title": "Entities with bilingual aliases, typed relationships and link integrity",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 4,
+   "priority": "P2",
+   "points": 8,
+   "objective": "Records can name entities in Arabic and English and relate to each other with evidence.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-KNW-006",
+    "FR-KNW-007",
+    "FR-KNW-008"
+   ],
+   "architecture": "CN1.1 09; IR1.1 data model",
+   "depends_on": [
+    "SB-047"
+   ],
+   "acceptance": [
+    "An entity has aliases in both languages and one identifier",
+    "a relationship has a type, evidence and a validity period",
+    "a check reports links that point at nothing"
+   ],
+   "tests": "Integration tests with synthetic bilingual data.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-082",
+   "title": "Retention, archive and deletion by class",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 4,
+   "priority": "P1",
+   "points": 5,
+   "objective": "Records are archived or deleted under the class rules, and deletion reaches the object store and backups.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-45",
+    "FR-MEM-009",
+    "FR-AGT-005"
+   ],
+   "architecture": "CN1.1 21, 22; ADR-016",
+   "depends_on": [
+    "SB-047",
+    "SB-060",
+    "SB-065"
+   ],
+   "acceptance": [
+    "K2 records carry a review date and one without it is flagged",
+    "purge is a tier 2 act that needs a bound owner approval",
+    "deletion propagates to the object store and is reflected in later backups",
+    "dry-run lists what would be removed and changes nothing"
+   ],
+   "tests": "Integration tests with synthetic data.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
+  },
+  {
+   "id": "SB-083",
+   "title": "Project records: decisions, milestones, tasks, risks, commitments and open questions",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 4,
+   "priority": "P1",
+   "points": 5,
+   "objective": "A project's working state is held as evidenced records.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-PRJ-003",
+    "FR-PRJ-004"
+   ],
+   "architecture": "CN1.1 09; IR1.1 data model",
+   "depends_on": [
+    "SB-045",
+    "SB-047"
+   ],
+   "acceptance": [
+    "Each record kind is stored with status, dates and evidence",
+    "a decision records its alternatives and the evidence for the choice"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-084",
+   "title": "Project state as of a date and cited status report",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 4,
+   "priority": "P2",
+   "points": 5,
+   "objective": "The owner can ask what a project looked like on a date and get a report whose statements cite evidence.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-PRJ-001",
+    "FR-PRJ-005"
+   ],
+   "architecture": "CN1.1 09, 10",
+   "depends_on": [
+    "SB-043",
+    "SB-083"
+   ],
+   "acceptance": [
+    "State as of a date uses only revisions valid then",
+    "every line of the status report resolves to evidence or is marked unsupported"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-085",
+   "title": "Isolated extraction worker with PDF, DOCX and HTML parsers",
+   "type": "feature",
+   "epic": "EP-07",
+   "wave": 4,
+   "priority": "P2",
+   "points": 8,
+   "objective": "Formats beyond text and Markdown are parsed outside the service process with resource limits.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-23",
+    "FR-ING-007",
+    "FR-SEC-008"
+   ],
+   "architecture": "CN1.1 08; A1 05 §2",
+   "depends_on": [
+    "SB-035"
+   ],
+   "acceptance": [
+    "Parsing runs in a separate, resource-limited process with no network and no credentials",
+    "a hostile or oversized file fails closed and is audited",
+    "only synthetic test files are used"
+   ],
+   "tests": "Integration tests with hostile synthetic files.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
+  },
+  {
+   "id": "SB-086",
+   "title": "Runtime architecture record: components, trust boundaries, configuration and secret handling",
+   "type": "task",
+   "epic": "EP-19",
+   "wave": 3,
+   "priority": "P1",
+   "points": 2,
+   "objective": "One document and one configuration contract say what runs where and what may hold a secret.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-SEC-002"
+   ],
+   "architecture": "CN1.1 05, 14; ADR-021 to ADR-034",
+   "depends_on": [
+    "SB-051"
+   ],
+   "acceptance": [
+    "Components, data stores, trust boundaries and outbound connections are listed",
+    "every secret is named with where it lives; none is in the repository, prompts or notes",
+    "the list is checked against the running configuration by a test"
+   ],
+   "tests": "Unit test of the configuration contract.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-087",
+   "title": "Session-close skill: unreviewed summary and proposed memory candidates",
+   "type": "feature",
+   "epic": "EP-20",
+   "wave": 4,
+   "priority": "P1",
+   "points": 3,
+   "objective": "Closing a session records what happened and proposes what is worth keeping, without approving anything.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-MEM-003"
+   ],
+   "architecture": "CN1.1 06 §6; A1 03",
+   "depends_on": [
+    "SB-056",
+    "SB-063"
+   ],
+   "acceptance": [
+    "The skill submits the summary as unreviewed session material",
+    "memory candidates are submitted as proposals only",
+    "the skill holds no endpoint, secret or authority"
+   ],
+   "tests": "Review and a scripted trial.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-088",
+   "title": "Connector set-up check: genuine service and shadowing guard",
+   "type": "feature",
+   "epic": "EP-20",
+   "wave": 4,
+   "priority": "P1",
+   "points": 3,
+   "objective": "A session can confirm it is talking to the genuine service and that no other server shadows the connector.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-22"
+   ],
+   "architecture": "A1 04",
+   "depends_on": [
+    "SB-055"
+   ],
+   "acceptance": [
+    "The check reports the server identity it reached and fails on a mismatch",
+    "a locally configured server with the same name or URL is reported",
+    "the check sends no knowledge before identity is confirmed"
+   ],
+   "tests": "Scripted trial against a local test server.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": true,
+   "gate": ""
+  },
+  {
+   "id": "SB-089",
+   "title": "Tool and interface reference generated from the schemas",
+   "type": "task",
+   "epic": "EP-21",
+   "wave": 4,
+   "priority": "P2",
+   "points": 2,
+   "objective": "The reference for every connector tool is produced from the code, so it cannot drift.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "CN1.1 06",
+   "depends_on": [
+    "SB-054"
+   ],
+   "acceptance": [
+    "Each tool lists inputs, outputs, limits and errors",
+    "a check fails when the reference is stale"
+   ],
+   "tests": "Staleness check in CI.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-090",
+   "title": "Architecture overview, contributor guide and handover notes",
+   "type": "task",
+   "epic": "EP-21",
+   "wave": 7,
+   "priority": "P1",
+   "points": 3,
+   "objective": "Someone new can understand, run and change the system from the repository alone.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "A1 07",
+   "depends_on": [
+    "SB-077"
+   ],
+   "acceptance": [
+    "Overview of components and data flow matches the deployed system",
+    "a new contributor can run the tests from the guide",
+    "known limits and unverified items are listed"
+   ],
+   "tests": "Review by someone who did not write it.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-091",
+   "title": "Export validation and re-import check without overwrite",
+   "type": "feature",
+   "epic": "EP-15",
+   "wave": 4,
+   "priority": "P2",
+   "points": 5,
+   "objective": "An exported bundle can be checked against its schema and compared with the service without changing anything.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-KNW-001",
+    "FR-KNW-005",
+    "CR-21"
+   ],
+   "architecture": "CN1.1 11",
+   "depends_on": [
+    "SB-064"
+   ],
+   "acceptance": [
+    "Exported notes are validated against the versioned schema: identifiers, dates, types",
+    "differences between an edited export and the service are reported as drift",
+    "nothing is written back without a proposal and approval"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false,
+   "security_relevant": false,
+   "gate": ""
+  },
+  {
+   "id": "SB-092",
+   "title": "Type checking and a coverage threshold in CI",
+   "type": "task",
+   "epic": "EP-01",
+   "wave": 1,
+   "priority": "P1",
+   "points": 2,
+   "objective": "Code is typed, linted and covered, and CI enforces all three.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "NFR-010"
+   ],
+   "architecture": "PD-005",
+   "depends_on": [
+    "SB-003"
+   ],
+   "acceptance": [
+    "A type checker runs in CI with no errors",
+    "a coverage threshold is set from the measured figure and enforced",
+    "no runtime dependency is added"
+   ],
+   "tests": "The CI run itself.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "READY",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true,
+   "security_relevant": false,
+   "gate": ""
   }
  ],
  "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
  "owner_decisions": [
   "Provider, region and monthly cost ceiling (requested through SB-070)",
-  "Name a reviewer for security-relevant tickets (PD-004)",
+  "Name a reviewer for security-relevant tickets (PD-004). Until then SB-010, SB-011 and SB-012 stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 cannot open (BLK-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
   "Acceptance or not of the residual risks listed in the CN1.1 addendum",
   "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
-  "passed": 98,
+  "passed": 239,
   "failed": 0
+ },
+ "implementers": [
+  "Claude Code"
+ ],
+ "requirement_notes": {
+  "CR-39": "The K1 ceiling is in scope. The elevation half is not built: the first-release profile (A1 05 §2) defers it and the repository boundary forbids it without separate owner authorisation; its absence is tested.",
+  "CR-45": "K3 purge is specified but cannot be exercised: K3 material is not admitted in the first release.",
+  "FR-ING-007": "Text and Markdown in SB-035; other formats in SB-085.",
+  "CR-31": "If the managed-identity spike (SB-050) shows the provider cannot bind an assertion to the proposal hash, A1 05 replaces this with fresh re-authentication plus server-side binding; that would be recorded as a decision, not assumed."
+ },
+ "requirement_dispositions": {
+  "FR-IMP-001": {
+   "disposition": "DEFERRED",
+   "reason": "Deferred by the specification itself (IR1.1 and the CN1.1 transition). A legacy vault import means real personal documents, which the current authorisation does not allow.",
+   "revisit": "After production readiness (SB-078) and a separate owner authorisation for real data"
+  },
+  "FR-IMP-002": {
+   "disposition": "DEFERRED",
+   "reason": "Deferred by the specification itself; depends on FR-IMP-001 and on real personal documents being authorised.",
+   "revisit": "With FR-IMP-001"
+  },
+  "FR-IMP-003": {
+   "disposition": "DEFERRED",
+   "reason": "Deferred by the specification itself; a rollback of import batches has no meaning until imports exist.",
+   "revisit": "With FR-IMP-001"
+  },
+  "FR-ING-010": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): there is no local inbox folder; sources arrive through the service and are stored as immutable objects.",
+   "replaced_by": [
+    "CR-10"
+   ]
+  },
+  "FR-KNW-004": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): the Obsidian vault is an optional export, not an editing surface; changes enter as proposals and a re-import is validated, never synchronised.",
+   "replaced_by": [
+    "CR-21"
+   ]
+  },
+  "FR-AGT-004": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): terminal approval tiers and channels are replaced by scoped connector tokens that cannot approve and an owner-authenticated approval surface.",
+   "replaced_by": [
+    "CR-03",
+    "CR-04"
+   ]
+  },
+  "FR-AGT-007": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): no local Claude Code operating workspace is installed; sessions reach the service through the remote connector.",
+   "replaced_by": [
+    "CR-02",
+    "CR-22"
+   ]
+  },
+  "FR-SEC-001": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): local path restrictions do not apply to a hosted service; every authorisation is enforced on the server.",
+   "replaced_by": [
+    "CR-03",
+    "CR-05"
+   ]
+  },
+  "FR-SEC-006": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): a hosted service is reached over the network by design; the controls are the single authenticated path, encryption and recorded regions.",
+   "replaced_by": [
+    "CR-02",
+    "CR-12",
+    "CR-13"
+   ]
+  },
+  "FR-OPS-007": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): launchd is specific to the Mac, which the product no longer depends on; scheduled work runs in the service.",
+   "replaced_by": [
+    "CR-24"
+   ]
+  },
+  "FR-OPS-009": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): there is no local operating home or vault skeleton to initialise; the environment is created by migrations (SB-023) and deployment (SB-071).",
+   "replaced_by": []
+  },
+  "NFR-004": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): offline operation is replaced by a service that runs with no personal computer online, plus a complete export.",
+   "replaced_by": [
+    "CR-01",
+    "CR-15"
+   ]
+  },
+  "NFR-009": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): a zero-egress rule cannot hold for a hosted service; it is replaced by recorded and enforced regions and by the exfiltration limits.",
+   "replaced_by": [
+    "CR-13",
+    "CR-40",
+    "CR-41"
+   ]
+  },
+  "NFR-020": {
+   "disposition": "EXCLUDED",
+   "reason": "Superseded by the cloud-native architecture (CN1.1 transition assessment): macOS compatibility is no longer a requirement of the service; client compatibility is tested against the deployed connector (SB-073).",
+   "replaced_by": [
+    "CR-01"
+   ]
+  }
  }
 }
