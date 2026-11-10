@@ -7,7 +7,7 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 
 | Requirement | Tickets | Status of those tickets | Evidence |
 |---|---|---|---|
-| CR-01 | SB-051, SB-071 | BACKLOG | — |
+| CR-01 | SB-051, SB-071 | BACKLOG, READY | — |
 | CR-02 | SB-052, SB-054 | BACKLOG | — |
 | CR-03 | SB-053 | BACKLOG | — |
 | CR-04 | SB-058 | BACKLOG | — |
@@ -16,9 +16,9 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 | CR-07 | SB-045 | BACKLOG | — |
 | CR-08 | SB-027, SB-046, SB-056 | BACKLOG | — |
 | CR-09 | SB-043, SB-055 | BACKLOG | — |
-| CR-10 | SB-032, SB-033 | BACKLOG | — |
+| CR-10 | SB-032, SB-033 | BACKLOG, READY | — |
 | CR-11 | SB-036 | BACKLOG | — |
-| CR-12 | SB-051, SB-069 | BACKLOG | — |
+| CR-12 | SB-051, SB-069 | BACKLOG, READY | — |
 | CR-13 | SB-070, SB-069 | BACKLOG | — |
 | CR-14 | SB-065, SB-066, SB-067 | BACKLOG | — |
 | CR-15 | SB-064 | BACKLOG | — |
@@ -29,15 +29,15 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 | CR-20 | SB-070, SB-072 | BACKLOG | — |
 | CR-21 | SB-064 | BACKLOG | — |
 | CR-22 | SB-052, SB-073 | BACKLOG | — |
-| CR-25 | SB-010, SB-024, SB-034 | BACKLOG | — |
+| CR-25 | SB-010, SB-024, SB-034 | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004) |
 | CR-26 | SB-034 | BACKLOG | — |
 | CR-27 | SB-042, SB-055 | BACKLOG | — |
 | CR-28 | SB-064 | BACKLOG | — |
-| CR-29 | SB-010 | BACKLOG | — |
+| CR-29 | SB-010 | IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004) |
 | CR-30 | SB-058 | BACKLOG | — |
-| CR-31 | SB-012, SB-058 | BACKLOG | — |
+| CR-31 | SB-012, SB-058 | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: key-order and Unicode-form invariance, change sensitivity, batch digest. Awaiting review (PD-004) |
 | CR-32 | SB-059 | BACKLOG | — |
-| CR-33 | SB-012, SB-026, SB-048, SB-060 | BACKLOG | — |
+| CR-33 | SB-012, SB-026, SB-048, SB-060 | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: key-order and Unicode-form invariance, change sensitivity, batch digest. Awaiting review (PD-004) |
 | CR-34 | SB-062 | BACKLOG | — |
 | CR-35 | SB-062 | BACKLOG | — |
 | CR-36 | SB-026, SB-042, SB-053 | BACKLOG | — |
@@ -45,8 +45,8 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 | CR-38 | SB-049 | BACKLOG | — |
 | CR-40 | SB-041 | BACKLOG | — |
 | CR-41 | SB-057, SB-072 | BACKLOG | — |
-| CR-42 | SB-011, SB-027, SB-046, SB-056 | BACKLOG | — |
-| CR-43 | SB-050 | BACKLOG | — |
+| CR-42 | SB-011, SB-027, SB-046, SB-056 | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: tier rules, envelope, expiry boundary. Awaiting review (PD-004) |
+| CR-43 | SB-050 | READY | — |
 | CR-44 | SB-060 | BACKLOG | — |
 | CR-46 | SB-042 | BACKLOG | — |
 | CR-47 | SB-042 | BACKLOG | — |
@@ -67,7 +67,7 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 | FR-OPS-006 | SB-023 | BACKLOG | — |
 | FR-RET-001 | SB-040, SB-041 | BACKLOG | — |
 | FR-RET-002 | SB-043 | BACKLOG | — |
-| FR-RET-003 | SB-021, SB-030, SB-031 | BACKLOG | — |
+| FR-RET-003 | SB-021, SB-030, SB-031 | BACKLOG, DONE | commit e1e9fda; tests/unit/test_text.py: outputs equal the recorded IR1.1 probe outputs for all 17 queries; idempotence and control-character tests pass; commit e1e9fda; tests/unit/test_text.py: stems equal the recorded IR1.1 outputs; broken-plural limitation asserted |
 | FR-RET-004 | SB-041 | BACKLOG | — |
 | FR-RET-005 | SB-041 | BACKLOG | — |
 | FR-RET-007 | SB-040 | BACKLOG | — |
@@ -78,7 +78,7 @@ Covered by at least one ticket: 72 of 148. **Without a ticket yet: 73** (listed 
 | NFR-002 | SB-036 | BACKLOG | — |
 | NFR-007 | SB-044 | BACKLOG | — |
 | NFR-019 | SB-029, SB-061 | BACKLOG | — |
-| NFR-022 | SB-030 | BACKLOG | — |
+| NFR-022 | SB-030 | DONE | commit e1e9fda; tests/unit/test_text.py: outputs equal the recorded IR1.1 probe outputs for all 17 queries; idempotence and control-character tests pass |
 
 ## Requirements with no ticket yet
 

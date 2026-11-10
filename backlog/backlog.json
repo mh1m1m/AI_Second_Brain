@@ -132,9 +132,9 @@
    "tests": "Smoke: the commands run in CI.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; pip install, ruff and pytest run locally",
    "elaborated": true
   },
   {
@@ -160,9 +160,9 @@
    "tests": "Unit tests for cycle detection, readiness and rendering.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/test_backlog.py (6 tests) pass; validate and render --check pass",
    "elaborated": true
   },
   {
@@ -187,8 +187,8 @@
    "tests": "Verified on the first push to GitHub.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
-   "blocked_reason": "",
+   "status": "BLOCKED",
+   "blocked_reason": "Workflow written (commit e1e9fda) but cannot be verified until a repository exists (BLK-001)",
    "evidence": "",
    "elaborated": true
   },
@@ -215,9 +215,9 @@
    "tests": "Review.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; docs/decisions/DECISION-LOG.md, docs/BLOCKERS.md, docs/authorization/",
    "elaborated": true
   },
   {
@@ -242,8 +242,8 @@
    "tests": "CI run on GitHub.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
-   "blocked_reason": "",
+   "status": "BLOCKED",
+   "blocked_reason": "A session cannot create a repository; owner action needed (BLK-001)",
    "evidence": "",
    "elaborated": true
   },
@@ -296,9 +296,9 @@
    "tests": "None.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "2026-11-10: REST repository-scoped calls work; account-level calls and repository creation refused (sessions bound to configured repositories); GraphQL, and so Projects, unavailable (HTTP 403). Recorded as BLK-001 and BLK-002",
    "elaborated": true
   },
   {
@@ -329,9 +329,9 @@
    "tests": "Unit tests over all class pairs.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
-   "status": "BACKLOG",
+   "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004)",
    "elaborated": true
   },
   {
@@ -360,9 +360,9 @@
    "tests": "Unit tests including expiry boundaries.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
-   "status": "BACKLOG",
+   "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/unit/test_domain.py: tier rules, envelope, expiry boundary. Awaiting review (PD-004)",
    "elaborated": true
   },
   {
@@ -392,9 +392,9 @@
    "tests": "Unit and property-style tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
-   "status": "BACKLOG",
+   "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/unit/test_domain.py: key-order and Unicode-form invariance, change sensitivity, batch digest. Awaiting review (PD-004)",
    "elaborated": true
   },
   {
@@ -419,7 +419,7 @@
    "tests": "The fixture's own test.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "READY",
    "blocked_reason": "",
    "evidence": "",
    "elaborated": true
@@ -723,9 +723,9 @@
    "tests": "Unit tests against recorded outputs.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/unit/test_text.py: outputs equal the recorded IR1.1 probe outputs for all 17 queries; idempotence and control-character tests pass",
    "elaborated": true
   },
   {
@@ -754,9 +754,9 @@
    "tests": "Unit tests against recorded outputs.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit e1e9fda; tests/unit/test_text.py: stems equal the recorded IR1.1 outputs; broken-plural limitation asserted",
    "elaborated": true
   },
   {
@@ -784,7 +784,7 @@
    "tests": "Unit tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "READY",
    "blocked_reason": "",
    "evidence": "",
    "elaborated": true
@@ -1253,7 +1253,7 @@
    "tests": "None.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
-   "status": "BACKLOG",
+   "status": "READY",
    "blocked_reason": "",
    "evidence": "",
    "elaborated": false
@@ -1284,7 +1284,7 @@
    "tests": "Unit tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "READY",
    "blocked_reason": "",
    "evidence": "",
    "elaborated": false
@@ -2088,5 +2088,9 @@
   "Name a reviewer for security-relevant tickets (PD-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
   "Acceptance or not of the residual risks listed in the CN1.1 addendum"
- ]
+ ],
+ "last_test_run": {
+  "passed": 97,
+  "failed": 0
+ }
 }

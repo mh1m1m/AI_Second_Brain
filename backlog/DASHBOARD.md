@@ -5,33 +5,37 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Measure | Value |
 |---|---|
-| Tickets done | 0 of 66 (0%) |
-| Points done | 0 of 254 (0%) |
-| Implemented and tested, awaiting review | 0 |
+| Tickets done | 6 of 66 (9%) |
+| Points done | 11 of 254 (4%) |
+| Implemented and tested, awaiting review | 3 |
 | Current wave | 0 |
-| Blocked | 0 |
+| Blocked | 2 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings | 3 |
-| Last recorded test run | none recorded |
+| Last recorded test run | 97 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
-| Critical path remaining | 65 points: SB-001 → SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
+| Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |
 
 ## By status
 
 | Status | Tickets |
 |---|---|
-| BACKLOG | 66 |
+| BACKLOG | 51 |
+| READY | 4 |
+| IN REVIEW | 3 |
+| BLOCKED | 2 |
+| DONE | 6 |
 
 ## By initiative
 
 | Initiative | Title | Tickets | Done | Complete |
 |---|---|---|---|---|
-| INIT-01 | Repository and Development Foundation | 7 | 0 | 0% |
+| INIT-01 | Repository and Development Foundation | 7 | 4 | 57% |
 | INIT-02 | Cloud Architecture and Infrastructure | 0 | 0 | no ticket yet |
 | INIT-03 | PostgreSQL Data Platform | 8 | 0 | 0% |
 | INIT-04 | Knowledge Ingestion and Classification | 8 | 0 | 0% |
-| INIT-05 | Arabic-First and Bilingual Retrieval | 7 | 0 | 0% |
+| INIT-05 | Arabic-First and Bilingual Retrieval | 7 | 2 | 29% |
 | INIT-06 | MCP Server and Claude Code Integration | 4 | 0 | 0% |
 | INIT-07 | Persistent Memory and Session Continuity | 4 | 0 | 0% |
 | INIT-08 | Governance and Independent Approval | 4 | 0 | 0% |
@@ -48,10 +52,10 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Wave | Tickets | Done | In review | Ready | Blocked |
 |---|---|---|---|---|---|
-| 0 | 7 | 0 | 0 | 0 | 0 |
-| 1 | 20 | 0 | 0 | 0 | 0 |
+| 0 | 7 | 4 | 0 | 0 | 2 |
+| 1 | 20 | 2 | 3 | 2 | 0 |
 | 2 | 10 | 0 | 0 | 0 | 0 |
-| 3 | 12 | 0 | 0 | 0 | 0 |
+| 3 | 12 | 0 | 0 | 2 | 0 |
 | 4 | 6 | 0 | 0 | 0 | 0 |
 | 5 | 5 | 0 | 0 | 0 | 0 |
 | 6 | 3 | 0 | 0 | 0 | 0 |
@@ -61,6 +65,8 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Ticket | Title | Reason |
 |---|---|---|
+| SB-003 | Add the CI workflow | Workflow written (commit e1e9fda) but cannot be verified until a repository exists (BLK-001) |
+| SB-005 | Create the private GitHub repository and push | A session cannot create a repository; owner action needed (BLK-001) |
 
 ## Owner decisions outstanding
 
