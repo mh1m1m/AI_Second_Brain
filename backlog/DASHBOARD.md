@@ -66,13 +66,13 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | Ticket | Title | Reason |
 |---|---|---|
 | SB-003 | Add the CI workflow | Workflow written (commit e1e9fda) but cannot be verified until a repository exists (BLK-001) |
-| SB-005 | Create the private GitHub repository and push | A session cannot create a repository; owner action needed (BLK-001) |
+| SB-005 | Push to the GitHub repository | A session cannot create a repository; owner action needed (BLK-001) |
 
 ## Owner decisions outstanding
 
-- Create the private repository `ai-second-brain-platform` and grant access (BLK-001)
 - Provider, region and monthly cost ceiling (requested through SB-070)
 - Name a reviewer for security-relevant tickets (PD-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
+- Reconsider repository visibility: it is public by decision OD-001; the specification recommends private
 

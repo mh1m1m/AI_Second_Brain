@@ -222,13 +222,13 @@
   },
   {
    "id": "SB-005",
-   "title": "Create the private GitHub repository and push",
+   "title": "Push to the GitHub repository",
    "type": "task",
    "epic": "EP-01",
    "wave": 0,
    "priority": "P0",
    "points": 1,
-   "objective": "The work is in a private repository the owner controls.",
+   "objective": "The work is in a GitHub repository the owner controls.",
    "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
    "requirements": [],
    "architecture": "CN1.1 05; PD-005",
@@ -236,7 +236,8 @@
     "SB-001"
    ],
    "acceptance": [
-    "Repository exists, is private, and holds the full history",
+    "Repository holds the full history",
+    "Visibility is as the owner decided (public, OD-001)",
     "CI runs green"
    ],
    "tests": "CI run on GitHub.",
@@ -2083,11 +2084,11 @@
  ],
  "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
  "owner_decisions": [
-  "Create the private repository `ai-second-brain-platform` and grant access (BLK-001)",
   "Provider, region and monthly cost ceiling (requested through SB-070)",
   "Name a reviewer for security-relevant tickets (PD-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
-  "Acceptance or not of the residual risks listed in the CN1.1 addendum"
+  "Acceptance or not of the residual risks listed in the CN1.1 addendum",
+  "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
   "passed": 97,

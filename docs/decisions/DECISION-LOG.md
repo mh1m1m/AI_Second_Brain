@@ -2,6 +2,14 @@
 
 Provisional engineering decisions taken under the implementation authorisation of 2026-11-10. **None is an owner approval.** Owner decisions are recorded only when the owner states them.
 
+## Owner decisions
+
+| ID | Date | Decision | Recorded from |
+|---|---|---|---|
+| OD-001 | 2026-11-10 | The platform repository is `mh1m1m/AI_Second_Brain` and stays **public**. The owner was told that the specification and the directive call for a private repository and that the threat model and residual-risk register would be published, and chose to push as public | The owner's answer in the session |
+
+## Provisional engineering decisions
+
 | ID | Date | Decision | Reason | Revisit when |
 |---|---|---|---|---|
 | PD-001 | 2026-11-10 | Design baseline: CN1.1 as amended by addendum A1 (first-release profile) | Owner's precedence order | Verification contradicts it |

@@ -79,7 +79,7 @@
 | Ticket | Title | Type | Epic | Wave | Priority | Points | Depends on |
 |---|---|---|---|---|---|---|---|
 | SB-003 | Add the CI workflow | task | EP-01 | 0 | P0 | 2 | SB-001 |
-| SB-005 | Create the private GitHub repository and push | task | EP-01 | 0 | P0 | 1 | SB-001 |
+| SB-005 | Push to the GitHub repository | task | EP-01 | 0 | P0 | 1 | SB-001 |
 
 ## DONE (6)
 

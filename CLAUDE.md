@@ -8,6 +8,9 @@
 3. Work on a branch, write tests first, run `ruff check . && pytest && python tools/backlog.py validate`.
 4. Update the ticket with `python tools/backlog.py set-status SB-NNN STATUS --evidence "..."`, then `render`.
 
+## This repository is public (owner decision OD-001, 2026-11-10)
+Anything committed is published. Never commit secrets, real documents, personal knowledge, provider account details, or anything above class K0.
+
 ## Boundaries (do not cross without the owner's separate, explicit authorisation)
 - Synthetic data only. No real documents or personal knowledge.
 - No paid cloud resources, purchases or billing changes. Paid deployment needs one consolidated request (ticket SB-070).

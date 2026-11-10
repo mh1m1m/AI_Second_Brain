@@ -1,6 +1,6 @@
 # AI Second Brain 6.0 — platform
 
-A cloud-hosted personal knowledge service used from Claude Code through one remote MCP connector. Private repository; synthetic data only until the owner authorises otherwise.
+A cloud-hosted personal knowledge service used from Claude Code through one remote MCP connector. **This repository is public**, by the owner's decision of 2026-11-10 (OD-001). Everything committed here is readable by anyone: synthetic data only, no secrets, nothing confidential.
 
 - **Where things stand:** `backlog/DASHBOARD.md`
 - **What to do next:** `python tools/backlog.py next`
