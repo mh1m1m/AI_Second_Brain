@@ -6,7 +6,7 @@
 1. Read `backlog/DASHBOARD.md` and `docs/BLOCKERS.md`.
 2. Run `python tools/github_mirror.py mh1m1m/AI_Second_Brain --check`. If it reports drift, resolve it as `backlog/README.md` describes before doing anything else.
 3. Pick the highest-priority ticket whose status is READY (`python tools/backlog.py next`). A ticket marked provisional may be built and tested but not accepted.
-4. Work on a branch, write tests first, run `ruff check . && pytest && python tools/backlog.py validate`.
+4. Work on a branch, write tests first, run `ruff check . && mypy && pytest --cov && python tools/backlog.py validate`.
 5. Update the ticket with `python tools/backlog.py set-status SB-NNN STATUS --evidence "..."`, then `render`, then `python tools/github_mirror.py mh1m1m/AI_Second_Brain`, then commit. Tickets are changed in `backlog/backlog.json` only, never on GitHub.
 6. Security-relevant tickets stop at IN REVIEW. Never record a review that did not happen, and never name the implementer as reviewer.
 

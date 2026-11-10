@@ -7,7 +7,7 @@ authors = [{ name = "Mohammed Alsaleh" }]
 dependencies = []
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "mypy>=1.11"]
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -33,3 +33,19 @@ ignore = ["S101"]
 [tool.ruff.lint.per-file-ignores]
 "tools/*" = ["E501"]
 "tests/*" = ["E501"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+python_version = "3.12"
+
+[tool.coverage.run]
+branch = true
+source = ["second_brain"]
+
+[tool.coverage.report]
+# Measured 100% of statements and branches on 2026-11-10 (294 statements). The threshold leaves room for
+# defensive branches that tests cannot reach; raise it, never lower it, without a recorded decision.
+fail_under = 95
+show_missing = true
+skip_covered = true

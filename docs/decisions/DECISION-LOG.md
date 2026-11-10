@@ -7,6 +7,8 @@ Provisional engineering decisions taken under the implementation authorisation o
 | ID | Date | Decision | Recorded from |
 |---|---|---|---|
 | OD-001 | 2026-11-10 | The platform repository is `mh1m1m/AI_Second_Brain` and stays **public**. The owner was told that the specification and the directive call for a private repository and that the threat model and residual-risk register would be published, and chose to push as public | The owner's answer in the session |
+| OD-002 | 2026-11-10 | The designated independent reviewer for security-relevant tickets is **ChatGPT (GPT-6), acting as independent external code reviewer**. It is to review SB-010, SB-011 and SB-012 separately against their acceptance criteria and security requirements. No ticket is marked DONE until a documented independent review explicitly accepts it. The reviews of 2026-11-10 were preliminary and are not that acceptance | The owner's answer in the session |
+| OD-003 | 2026-11-10 | Merge pull request #1, then pull request #87 after its CI is confirmed | The owner's answer in the session |
 
 ## Provisional engineering decisions
 

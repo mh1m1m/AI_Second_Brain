@@ -11,7 +11,7 @@ Requirement → tickets → evidence. The inventory is `docs/spec/transition-dat
 | Unclassified or conflicting (must be 0) | 0 |
 | Total in the inventory | 148 |
 
-Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review, 132 planned.
+Of the 134 covered: 2 accepted (every ticket DONE), 1 implemented and in review, 131 planned.
 
 ## Covered
 
@@ -26,7 +26,7 @@ Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review,
 | CR-07 | SB-045 | planned | BACKLOG | — | — |
 | CR-08 | SB-027, SB-046, SB-056 | planned | BACKLOG | — | — |
 | CR-09 | SB-043, SB-055 | planned | BACKLOG | — | — |
-| CR-10 | SB-032, SB-033 | planned | BACKLOG, READY | — | — |
+| CR-10 | SB-032, SB-033 | planned | BACKLOG, DONE | commit 1508a2d; src/second_brain/storage/object_store.py and local.py; tests/unit/test_object_store.py (11 tests: idempotent put, no overwrite, checksum on read, digest validation, size limit, concurrent puts); CI run 42775258945 passed. The local adapter is for tests and development only | — |
 | CR-11 | SB-036 | planned | BACKLOG | — | — |
 | CR-12 | SB-051, SB-069 | planned | BACKLOG, READY | — | — |
 | CR-13 | SB-069, SB-070 | planned | BACKLOG | — | — |
@@ -47,9 +47,9 @@ Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review,
 | CR-28 | SB-064 | planned | BACKLOG | — | — |
 | CR-29 | SB-010 | implemented, in review | IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004) | — |
 | CR-30 | SB-058 | planned | BACKLOG | — | — |
-| CR-31 | SB-012, SB-058 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) | If the managed-identity spike (SB-050) shows the provider cannot bind an assertion to the proposal hash, A1 05 replaces this with fresh re-authentication plus server-side binding; that would be recorded as a decision, not assumed. |
+| CR-31 | SB-012, SB-058 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires. | If the managed-identity spike (SB-050) shows the provider cannot bind an assertion to the proposal hash, A1 05 replaces this with fresh re-authentication plus server-side binding; that would be recorded as a decision, not assumed. |
 | CR-32 | SB-059 | planned | BACKLOG | — | — |
-| CR-33 | SB-012, SB-026, SB-048, SB-060 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) | — |
+| CR-33 | SB-012, SB-026, SB-048, SB-060 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires. | — |
 | CR-34 | SB-062 | planned | BACKLOG | — | — |
 | CR-35 | SB-062 | planned | BACKLOG | — | — |
 | CR-36 | SB-026, SB-042, SB-053 | planned | BACKLOG | — | — |
@@ -139,7 +139,7 @@ Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review,
 | NFR-006 | SB-067 | planned | BACKLOG | — | — |
 | NFR-007 | SB-044 | planned | BACKLOG | — | — |
 | NFR-008 | SB-044 | planned | BACKLOG | — | — |
-| NFR-010 | SB-092 | planned | READY | — | — |
+| NFR-010 | SB-092 | accepted | DONE | commit 1508a2d; mypy strict over src and branch coverage with a 95% floor (measured 100%) in pyproject.toml and .github/workflows/ci.yml; CI run 42775258945 passed with both steps | — |
 | NFR-011 | SB-068 | planned | BACKLOG | — | — |
 | NFR-012 | SB-044 | planned | BACKLOG | — | — |
 | NFR-013 | SB-074 | planned | BACKLOG | — | — |

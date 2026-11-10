@@ -5,8 +5,8 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Measure | Value |
 |---|---|
-| Tickets done | 9 of 80 (11%) |
-| Points done | 17 of 316 (5%) |
+| Tickets done | 11 of 80 (14%) |
+| Points done | 22 of 316 (7%) |
 | Implemented and tested, awaiting review | 3 |
 | Security-relevant tickets awaiting independent review | SB-010, SB-011, SB-012 |
 | Ready only provisionally (built on unreviewed security work) | none |
@@ -15,7 +15,7 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | Blocked | 0 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings (verified weaknesses) | 0 |
-| Last recorded test run | 241 passed, 0 failed |
+| Last recorded test run | 253 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
 | Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |
@@ -25,18 +25,18 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | Status | Tickets |
 |---|---|
 | BACKLOG | 63 |
-| READY | 5 |
+| READY | 3 |
 | IN REVIEW | 3 |
-| DONE | 9 |
+| DONE | 11 |
 
 ## By initiative
 
 | Initiative | Title | Epics | Tickets | Done | Complete |
 |---|---|---|---|---|---|
-| INIT-01 | Repository and Development Foundation | EP-01, EP-02 | 8 | 7 | 88% |
+| INIT-01 | Repository and Development Foundation | EP-01, EP-02 | 8 | 8 | 100% |
 | INIT-02 | Cloud Architecture and Infrastructure | EP-19 | 4 | 0 | 0% |
 | INIT-03 | PostgreSQL Data Platform | EP-04 | 8 | 0 | 0% |
-| INIT-04 | Knowledge Ingestion and Classification | EP-03, EP-06, EP-07 | 10 | 0 | 0% |
+| INIT-04 | Knowledge Ingestion and Classification | EP-03, EP-06, EP-07 | 10 | 1 | 10% |
 | INIT-05 | Arabic-First and Bilingual Retrieval | EP-08, EP-09 | 7 | 2 | 29% |
 | INIT-06 | MCP Server and Claude Code Integration | EP-13 | 4 | 0 | 0% |
 | INIT-07 | Persistent Memory and Session Continuity | EP-10 | 8 | 0 | 0% |
@@ -70,7 +70,7 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 | Wave | Tickets | Done | In review | Ready | Blocked |
 |---|---|---|---|---|---|
 | 0 | 7 | 7 | 0 | 0 | 0 |
-| 1 | 21 | 2 | 3 | 3 | 0 |
+| 1 | 21 | 4 | 3 | 1 | 0 |
 | 2 | 11 | 0 | 0 | 0 | 0 |
 | 3 | 14 | 0 | 0 | 2 | 0 |
 | 4 | 15 | 0 | 0 | 0 | 0 |
@@ -86,7 +86,7 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 ## Owner decisions outstanding
 
 - Provider, region and monthly cost ceiling (requested through SB-070)
-- Name a reviewer for security-relevant tickets (PD-004). Until then SB-010, SB-011 and SB-012 stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 cannot open (BLK-004)
+- Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
 - Reconsider repository visibility: it is public by decision OD-001; the specification recommends private

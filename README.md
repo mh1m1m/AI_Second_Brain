@@ -12,7 +12,7 @@ A cloud-hosted personal knowledge service used from Claude Code through one remo
 
 ```
 pip install -e ".[dev]"
-ruff check . && pytest && python tools/backlog.py validate
+ruff check . && mypy && pytest --cov && python tools/backlog.py validate
 ```
 
 Nothing here is deployed. No capability is production-ready.

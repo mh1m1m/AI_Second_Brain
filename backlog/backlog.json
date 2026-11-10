@@ -432,7 +432,7 @@
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004)",
+   "evidence": "commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires.",
    "elaborated": true,
    "security_relevant": true,
    "gate": ""
@@ -855,9 +855,9 @@
    "tests": "Unit tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "READY",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit 1508a2d; src/second_brain/storage/object_store.py and local.py; tests/unit/test_object_store.py (11 tests: idempotent put, no overwrite, checksum on read, digest validation, size limit, concurrent puts); CI run 42775258945 passed. The local adapter is for tests and development only",
    "elaborated": true,
    "security_relevant": false,
    "gate": ""
@@ -1678,7 +1678,8 @@
     "No connector credential is accepted",
     "the decision is bound to the stored hash",
     "Usable by keyboard and without colour, with right-to-left text rendered correctly",
-    "the owner can record an owner-attested memory here, without Claude Code"
+    "the owner can record an owner-attested memory here, without Claude Code",
+    "The page renders the stored canonical payload itself (`canonical_payload`), never the text as received, and the hash it binds is recomputed from that payload (review safeguard RV-06)"
    ],
    "tests": "Security tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1746,7 +1747,8 @@
    "acceptance": [
     "Replay and expiry are refused",
     "apply and consume are atomic",
-    "No consequential write happens without a consumed approval"
+    "No consequential write happens without a consumed approval",
+    "The payload applied is the stored canonical payload whose recomputed hash equals the approved hash; a mismatch refuses the apply and is audited (review safeguard RV-06)"
    ],
    "tests": "Integration tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -1781,7 +1783,8 @@
    ],
    "acceptance": [
     "All CN1.1 security tests that apply to the first release pass",
-    "A test shows that no call sequence raises a connection above K1"
+    "A test shows that no call sequence raises a connection above K1",
+    "An end-to-end test proves that the exact canonical payload displayed to the owner is the payload hashed, approved, stored and applied, and that changing it at any of those points is refused (review safeguard RV-06)"
    ],
    "tests": "The suite.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
@@ -2793,9 +2796,9 @@
    "tests": "The CI run itself.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "READY",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit 1508a2d; mypy strict over src and branch coverage with a 95% floor (measured 100%) in pyproject.toml and .github/workflows/ci.yml; CI run 42775258945 passed with both steps",
    "elaborated": true,
    "security_relevant": false,
    "gate": ""
@@ -2804,17 +2807,20 @@
  "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
  "owner_decisions": [
   "Provider, region and monthly cost ceiling (requested through SB-070)",
-  "Name a reviewer for security-relevant tickets (PD-004). Until then SB-010, SB-011 and SB-012 stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 cannot open (BLK-004)",
+  "Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
   "Acceptance or not of the residual risks listed in the CN1.1 addendum",
   "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
-  "passed": 241,
+  "passed": 253,
   "failed": 0
  },
  "implementers": [
   "Claude Code"
+ ],
+ "designated_reviewers": [
+  "ChatGPT (GPT-6)"
  ],
  "requirement_notes": {
   "CR-39": "The K1 ceiling is in scope. The elevation half is not built: the first-release profile (A1 05 §2) defers it and the repository boundary forbids it without separate owner authorisation; its absence is tested.",

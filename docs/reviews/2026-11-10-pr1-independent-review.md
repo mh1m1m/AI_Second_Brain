@@ -4,7 +4,7 @@ Author: Mohammed Alsaleh · Recorded 2026-11-10 · Source: an external review co
 
 The reviewer confirmed that the repository, the pull request, the 66-ticket backlog and a passing CI run exist, described the review as targeted rather than a complete security audit, and asked for five corrections before merging. The identifiers below use the prefix `RV-` because `CR-` already names the cloud requirements.
 
-"Fixed" below means implemented and tested by the author of the code. **None of these corrections has been examined by the reviewer yet**; each stays open as a GitHub issue (RV-01 #68, RV-02 #69, RV-03 #70, RV-04 #71, RV-05 #72) until the owner or the reviewer confirms it.
+"Fixed" below means implemented and tested by the author of the code. **Update, 2026-11-10:** the reviewer examined commit 433bdf3 and assessed all five as corrected; see `2026-11-10-pr1-follow-up-review.md`. The GitHub issues (RV-01 #68, RV-02 #69, RV-03 #70, RV-04 #71, RV-05 #72) were closed on that basis.
 
 | ID | Severity | Finding | Correction | Tests | State |
 |---|---|---|---|---|---|
