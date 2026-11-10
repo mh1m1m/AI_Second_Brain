@@ -145,7 +145,7 @@ def render(data: dict) -> dict[str, str]:
         ["Current wave", open_waves[0] if open_waves else "all waves complete"],
         ["Blocked", status_count["BLOCKED"]],
         ["Open P0 or P1 bugs", sum(1 for t in tickets if t["type"] == "bug" and t["status"] != "DONE" and t["priority"] in ("P0", "P1"))],
-        ["Open security findings", sum(1 for t in tickets if t["type"] == "security" and t["status"] != "DONE")],
+        ["Open security findings (verified weaknesses)", sum(1 for t in tickets if t["type"] == "security" and t["status"] != "DONE")],
         ["Last recorded test run", f"{tests['passed']} passed, {tests['failed']} failed" if tests else "none recorded"],
         ["Deployment", "Not deployed. No provider approved (BLK-003)"],
         ["Critical path remaining", f"{length} points: " + " → ".join(path)],

@@ -1511,7 +1511,7 @@
   {
    "id": "SB-059",
    "title": "Approval surface hardening",
-   "type": "security",
+   "type": "task",
    "epic": "EP-11",
    "wave": 3,
    "priority": "P0",
@@ -1570,7 +1570,7 @@
   {
    "id": "SB-061",
    "title": "Security test suite: separation, replay, project and ceiling boundaries",
-   "type": "security",
+   "type": "task",
    "epic": "EP-17",
    "wave": 3,
    "priority": "P0",
@@ -2003,7 +2003,7 @@
   {
    "id": "SB-076",
    "title": "Review against the residual-risk register",
-   "type": "security",
+   "type": "task",
    "epic": "EP-18",
    "wave": 7,
    "priority": "P0",

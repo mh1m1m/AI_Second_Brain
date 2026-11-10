@@ -1,6 +1,6 @@
 """Five-class data classification (CN1.1 document 21; requirements CR-25 and CR-29).
 
-Pure rules only. Storage, clearance records and approval live elsewhere; this module decides what the rules say.
+Pure rules only. Storage, clearance records and approval live elsewhere.
 """
 from __future__ import annotations
 

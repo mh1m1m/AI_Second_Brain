@@ -36,9 +36,9 @@
 | SB-056 | MCP tools: sessions, session context, artifacts, propose | feature | EP-13 | 3 | P0 | 5 | SB-054, SB-046, SB-048, SB-053 |
 | SB-057 | Rate and size limits; audit of every call | task | EP-12 | 3 | P0 | 3 | SB-055 |
 | SB-058 | Approval surface: owner login, proposal view, bound decision | feature | EP-11 | 3 | P0 | 8 | SB-048, SB-050 |
-| SB-059 | Approval surface hardening | security | EP-11 | 3 | P0 | 5 | SB-058 |
+| SB-059 | Approval surface hardening | task | EP-11 | 3 | P0 | 5 | SB-058 |
 | SB-060 | Apply on approval: one transaction, single use, expiry | task | EP-11 | 3 | P0 | 3 | SB-058 |
-| SB-061 | Security test suite: separation, replay, project and ceiling boundaries | security | EP-17 | 3 | P0 | 8 | SB-055, SB-056, SB-060 |
+| SB-061 | Security test suite: separation, replay, project and ceiling boundaries | task | EP-17 | 3 | P0 | 8 | SB-055, SB-056, SB-060 |
 | SB-062 | Repository locators | feature | EP-14 | 4 | P1 | 3 | SB-045 |
 | SB-063 | Bootstrap skill and project instruction template | feature | EP-14 | 4 | P1 | 2 | SB-055 |
 | SB-064 | Deterministic Markdown and JSON export | feature | EP-15 | 4 | P1 | 5 | SB-047 |
@@ -53,7 +53,7 @@
 | SB-073 | Client compatibility trial with the deployed connector | research | EP-17 | 6 | P0 | 5 | SB-071 |
 | SB-074 | End-to-end scenarios UX-A to UX-J | task | EP-17 | 6 | P0 | 8 | SB-056, SB-060, SB-066, SB-071 |
 | SB-075 | Trial: how often sessions consult the brain unprompted | research | EP-17 | 6 | P0 | 3 | SB-073, SB-063 |
-| SB-076 | Review against the residual-risk register | security | EP-18 | 7 | P0 | 3 | SB-061 |
+| SB-076 | Review against the residual-risk register | task | EP-18 | 7 | P0 | 3 | SB-061 |
 | SB-077 | Operator documentation and runbooks | task | EP-18 | 7 | P1 | 5 | SB-067 |
 | SB-078 | Production-readiness assessment and reviewer package | task | EP-18 | 7 | P0 | 3 | SB-074, SB-076 |
 
