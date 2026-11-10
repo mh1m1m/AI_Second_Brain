@@ -14,7 +14,8 @@ jobs:
           python-version: "3.12"
       - run: pip install -e ".[dev]"
       - run: ruff check .
-      - run: pytest
+      - run: mypy
+      - run: pytest --cov
       - run: python tools/backlog.py validate
       - run: python tools/backlog.py render --check
   issue-drift:

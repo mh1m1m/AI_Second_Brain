@@ -99,7 +99,8 @@ def canonical_payload(payload: dict[str, Any]) -> dict[str, Any]:
     """The payload in canonical form, or CanonicalError. This is what is displayed, stored and applied."""
     if type(payload) is not dict:
         raise CanonicalError(f"a proposal payload is an object, found {type(payload).__name__}")
-    return _clean(payload, "payload", 0)
+    cleaned: dict[str, Any] = _clean(payload, "payload", 0)
+    return cleaned
 
 
 def canonical_bytes(payload: dict[str, Any]) -> bytes:
