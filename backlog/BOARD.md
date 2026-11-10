@@ -69,15 +69,13 @@
 | SB-090 | Architecture overview, contributor guide and handover notes | task | EP-21 | 7 | P1 | 3 | SB-077 | — | — | provisional until reviewed: SB-028, SB-065 |
 | SB-091 | Export validation and re-import check without overwrite | feature | EP-15 | 4 | P2 | 5 | SB-064 | — | — | — |
 
-## READY (5)
+## READY (3)
 
 | Ticket | Title | Type | Epic | Wave | Priority | Points | Depends on | Security | Gate | Readiness |
 |---|---|---|---|---|---|---|---|---|---|---|
 | SB-020 | Spike: ephemeral PostgreSQL harness for tests | research | EP-04 | 1 | P0 | 2 | SB-001 | — | — | — |
-| SB-032 | Object store interface with a local adapter for tests | task | EP-06 | 1 | P0 | 3 | SB-001 | — | — | — |
 | SB-050 | Spike CV-19: can a managed identity service carry owner login and connector OAuth | research | EP-12 | 3 | P0 | 2 | — | review required | — | — |
 | SB-051 | Service skeleton: application, configuration, health | task | EP-13 | 3 | P0 | 3 | SB-001 | — | — | — |
-| SB-092 | Type checking and a coverage threshold in CI | task | EP-01 | 1 | P1 | 2 | SB-003 | — | — | — |
 
 ## IN REVIEW (3)
 
@@ -87,7 +85,7 @@
 | SB-011 | Implement memory tiers and the unreviewed-context envelope | feature | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
 | SB-012 | Implement canonical serialisation and hashing of proposals | task | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
 
-## DONE (9)
+## DONE (11)
 
 | Ticket | Title | Type | Epic | Wave | Priority | Points | Depends on | Security | Gate | Readiness |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -100,4 +98,6 @@
 | SB-007 | Spike: which GitHub project-management features a session can use | research | EP-02 | 0 | P1 | 1 | — | — | — | — |
 | SB-030 | Implement text normalisation ar-en-1 | feature | EP-08 | 1 | P0 | 2 | SB-001 | — | — | — |
 | SB-031 | Implement light stemmer ar-light-1 | feature | EP-08 | 1 | P0 | 2 | SB-030 | — | — | — |
+| SB-032 | Object store interface with a local adapter for tests | task | EP-06 | 1 | P0 | 3 | SB-001 | — | — | — |
+| SB-092 | Type checking and a coverage threshold in CI | task | EP-01 | 1 | P1 | 2 | SB-003 | — | — | — |
 

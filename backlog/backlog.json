@@ -855,9 +855,9 @@
    "tests": "Unit tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "READY",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit 1508a2d; src/second_brain/storage/object_store.py and local.py; tests/unit/test_object_store.py (11 tests: idempotent put, no overwrite, checksum on read, digest validation, size limit, concurrent puts); CI run 42775258945 passed. The local adapter is for tests and development only",
    "elaborated": true,
    "security_relevant": false,
    "gate": ""
@@ -2793,9 +2793,9 @@
    "tests": "The CI run itself.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "READY",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "commit 1508a2d; mypy strict over src and branch coverage with a 95% floor (measured 100%) in pyproject.toml and .github/workflows/ci.yml; CI run 42775258945 passed with both steps",
    "elaborated": true,
    "security_relevant": false,
    "gate": ""
@@ -2810,7 +2810,7 @@
   "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
-  "passed": 241,
+  "passed": 252,
   "failed": 0
  },
  "implementers": [

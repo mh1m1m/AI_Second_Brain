@@ -11,7 +11,7 @@ Requirement → tickets → evidence. The inventory is `docs/spec/transition-dat
 | Unclassified or conflicting (must be 0) | 0 |
 | Total in the inventory | 148 |
 
-Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review, 132 planned.
+Of the 134 covered: 2 accepted (every ticket DONE), 1 implemented and in review, 131 planned.
 
 ## Covered
 
@@ -26,7 +26,7 @@ Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review,
 | CR-07 | SB-045 | planned | BACKLOG | — | — |
 | CR-08 | SB-027, SB-046, SB-056 | planned | BACKLOG | — | — |
 | CR-09 | SB-043, SB-055 | planned | BACKLOG | — | — |
-| CR-10 | SB-032, SB-033 | planned | BACKLOG, READY | — | — |
+| CR-10 | SB-032, SB-033 | planned | BACKLOG, DONE | commit 1508a2d; src/second_brain/storage/object_store.py and local.py; tests/unit/test_object_store.py (11 tests: idempotent put, no overwrite, checksum on read, digest validation, size limit, concurrent puts); CI run 42775258945 passed. The local adapter is for tests and development only | — |
 | CR-11 | SB-036 | planned | BACKLOG | — | — |
 | CR-12 | SB-051, SB-069 | planned | BACKLOG, READY | — | — |
 | CR-13 | SB-069, SB-070 | planned | BACKLOG | — | — |
@@ -139,7 +139,7 @@ Of the 134 covered: 1 accepted (every ticket DONE), 1 implemented and in review,
 | NFR-006 | SB-067 | planned | BACKLOG | — | — |
 | NFR-007 | SB-044 | planned | BACKLOG | — | — |
 | NFR-008 | SB-044 | planned | BACKLOG | — | — |
-| NFR-010 | SB-092 | planned | READY | — | — |
+| NFR-010 | SB-092 | accepted | DONE | commit 1508a2d; mypy strict over src and branch coverage with a 95% floor (measured 100%) in pyproject.toml and .github/workflows/ci.yml; CI run 42775258945 passed with both steps | — |
 | NFR-011 | SB-068 | planned | BACKLOG | — | — |
 | NFR-012 | SB-044 | planned | BACKLOG | — | — |
 | NFR-013 | SB-074 | planned | BACKLOG | — | — |
