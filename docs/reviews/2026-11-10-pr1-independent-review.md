@@ -21,5 +21,5 @@ The reviewer confirmed that the repository, the pull request, the 66-ticket back
 3. The obligations in section 5 of the canonical profile are not yet implemented: the proposal engine and approval surface do not exist.
 4. Coverage means a ticket is responsible for a requirement. Of 134 covered requirements, most are planned, not built; the traceability report gives the split.
 5. Requirement CR-39 is covered only for the K1 ceiling. Elevation is not built, by the first-release profile and by the repository boundary.
-6. The drift check compares GitHub with the branch that was last pushed to the mirror. With more than one active branch it will report the other branch's state as drift.
+6. The issues show the state of whichever branch pushed to the mirror last. The drift check tells that apart from an edit made on GitHub by a marker in each issue body; the marker detects accidental divergence and is not a defence against deliberate forgery.
 7. PostgreSQL behaviour, the MCP server, authentication and deployment are untouched by this pull request and remain unverified.

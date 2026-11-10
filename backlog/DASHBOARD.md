@@ -15,7 +15,7 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | Blocked | 0 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings (verified weaknesses) | 0 |
-| Last recorded test run | 239 passed, 0 failed |
+| Last recorded test run | 241 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
 | Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |

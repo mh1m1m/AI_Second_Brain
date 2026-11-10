@@ -29,6 +29,6 @@ Change tickets in `backlog.json` only, then run `python tools/github_mirror.py O
 - `python tools/github_mirror.py OWNER/REPO --check` reports any issue whose title, state, managed labels, milestone or body was changed on GitHub, any mirrored issue that is missing, and any hand-made issue that looks like a ticket. It changes nothing. Run it at the start of a session; CI runs it too.
 - A push refuses to overwrite an issue edited on GitHub. To reconcile: read the report, make the change in `backlog.json` if the edit was right, then push with `--accept-backlog`.
 - `backlog/github-issues.json` records what was pushed. A backlog change that was not pushed fails the test suite.
-- The mirror reflects the branch that pushed last. With one line of development that is the working branch.
+- The mirror reflects the branch that pushed last. Each pushed issue carries a hidden marker of its own content, so an issue pushed from another branch is recognised as the mirror's work and reported as a note, while an edit by a person no longer matches its marker and is reported as drift.
 
 Elaboration is progressive: waves 0 and 1 are detailed; later tickets are outlines and are detailed when their wave becomes current.
