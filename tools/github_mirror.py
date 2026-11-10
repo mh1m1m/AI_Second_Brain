@@ -20,6 +20,8 @@ The mirror is one-way, and divergence is never silent:
 - A ticket whose expected fingerprint differs from the recorded one has not been pushed yet. `--pending` reports it
   without the network; the test suite runs the same comparison, so CI fails when a push was forgotten.
 
+This detects accidental divergence. It is not a security boundary: whoever can edit an issue can rewrite its marker.
+
 Comments on issues are not mirrored and are free for discussion. Issues whose title does not start with a ticket
 identifier (review findings, for example) are ignored. Uses the `gh` CLI's REST interface. Project tooling, not part
 of the service.

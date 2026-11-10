@@ -86,7 +86,7 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 ## Owner decisions outstanding
 
 - Provider, region and monthly cost ceiling (requested through SB-070)
-- Name a reviewer for security-relevant tickets (PD-004). Until then SB-010, SB-011 and SB-012 stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 cannot open (BLK-004)
+- Designate the independent reviewer for security-relevant tickets and record an acceptance decision for SB-010, SB-011 and SB-012 (PD-004). The external reviews of 2026-11-10 are technical feedback and say so themselves; they are not that acceptance. Until it is recorded the three tickets stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
 - Reconsider repository visibility: it is public by decision OD-001; the specification recommends private

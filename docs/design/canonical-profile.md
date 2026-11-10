@@ -44,6 +44,7 @@ These are not enforced here and must be met, and tested, where the proposal engi
 2. The hash is recomputed from the stored canonical payload at approval and again at apply; a stored hash is never trusted on its own.
 3. The schema of each proposal kind (which fields are required, which values are allowed) is validated separately. This profile guarantees one representation, not a valid proposal.
 4. NFC is the only normalisation of values. Look-alike characters, compatibility forms and direction-changing characters inside string values are distinct here by design; the approval surface must make them visible (SB-059).
+5. An end-to-end test must prove that the exact canonical payload displayed to the owner is the payload hashed, approved, stored and applied, and that altering it at any of those points is refused (review safeguard RV-06; acceptance criterion of SB-061). Until that test exists and passes, the approval workflow is not accepted.
 
 ## 6. Known limits
 
