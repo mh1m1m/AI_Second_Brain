@@ -51,3 +51,14 @@ def test_rendering_is_deterministic_and_covers_every_ticket():
     first, second = backlog.render(data), backlog.render(data)
     assert first == second
     assert all(f"backlog/tickets/{t['id']}.md" in first for t in data["tickets"])
+
+
+def test_issue_payload_carries_labels_state_and_source_note():
+    import github_mirror
+
+    data = _data()
+    pages = backlog.render(data)
+    done = next(t for t in data["tickets"] if t["status"] == "DONE")
+    body = github_mirror.payload(done, 3, pages)
+    assert body["title"].startswith(done["id"]) and body["state"] == "closed" and body["milestone"] == 3
+    assert f"priority: {done['priority']}" in body["labels"] and "backlog/backlog.json" in body["body"]

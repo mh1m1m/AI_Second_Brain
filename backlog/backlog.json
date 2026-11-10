@@ -187,9 +187,9 @@
    "tests": "Verified on the first push to GitHub.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BLOCKED",
+   "status": "DONE",
    "blocked_reason": "Workflow written (commit e1e9fda) but cannot be verified until a repository exists (BLK-001)",
-   "evidence": "",
+   "evidence": "CI passed on GitHub for push and pull request: https://github.com/mh1m1m/AI_Second_Brain/actions/runs/42771366231",
    "elaborated": true
   },
   {
@@ -243,9 +243,9 @@
    "tests": "CI run on GitHub.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BLOCKED",
+   "status": "DONE",
    "blocked_reason": "A session cannot create a repository; owner action needed (BLK-001)",
-   "evidence": "",
+   "evidence": "Branch sb/wave-0-foundation pushed; pull request #1 open; CI green (https://github.com/mh1m1m/AI_Second_Brain/actions/runs/42771366231); repository public by OD-001. Merge to main is the owner's",
    "elaborated": true
   },
   {
@@ -273,9 +273,9 @@
    "tests": "Dry-run test of the mirror payloads.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Ordinary implementation risk.",
-   "status": "BACKLOG",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "",
+   "evidence": "66 issues, 21 labels and 8 milestones created in mh1m1m/AI_Second_Brain by tools/github_mirror.py; mapping in backlog/github-issues.json; payload test passes",
    "elaborated": true
   },
   {
@@ -2091,7 +2091,7 @@
   "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
-  "passed": 97,
+  "passed": 98,
   "failed": 0
  }
 }
