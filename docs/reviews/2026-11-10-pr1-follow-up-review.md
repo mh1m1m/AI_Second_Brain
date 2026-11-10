@@ -42,3 +42,9 @@ Until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay
 5. Keep the security-integration gates closed until their reviews are recorded. *Enforced by the validator.*
 
 The reviewer names the next meaningful milestone as a working PostgreSQL-backed service with its security boundaries enforced, not more unit tests.
+
+## Owner decisions taken after this review (2026-11-10)
+
+- OD-002: ChatGPT (GPT-6) is designated as the independent external code reviewer. It reviews SB-010, SB-011 and SB-012 separately; none is DONE until a documented review explicitly accepts it. The request is `review-request-SB-010-011-012.md`.
+- OD-003: pull request #1 was merged (merge commit 6ee323e); pull request #87 follows once its CI is confirmed.
+

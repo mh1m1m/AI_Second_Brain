@@ -2807,17 +2807,20 @@
  "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
  "owner_decisions": [
   "Provider, region and monthly cost ceiling (requested through SB-070)",
-  "Designate the independent reviewer for security-relevant tickets and record an acceptance decision for SB-010, SB-011 and SB-012 (PD-004). The external reviews of 2026-11-10 are technical feedback and say so themselves; they are not that acceptance. Until it is recorded the three tickets stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)",
+  "Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
   "Acceptance or not of the residual risks listed in the CN1.1 addendum",
   "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
  ],
  "last_test_run": {
-  "passed": 252,
+  "passed": 253,
   "failed": 0
  },
  "implementers": [
   "Claude Code"
+ ],
+ "designated_reviewers": [
+  "ChatGPT (GPT-6)"
  ],
  "requirement_notes": {
   "CR-39": "The K1 ceiling is in scope. The elevation half is not built: the first-release profile (A1 05 §2) defers it and the repository boundary forbids it without separate owner authorisation; its absence is tested.",

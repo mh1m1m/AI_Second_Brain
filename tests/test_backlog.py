@@ -184,7 +184,19 @@ def test_nothing_is_done_before_its_dependencies_and_security_work_needs_an_inde
     by_id["SB-012"]["review"] = {"reviewer": "claude code", "date": "2026-11-11", "reference": "self"}
     assert any("SB-012: the reviewer is the implementer" in e for e in backlog.validate(data))
     by_id["SB-012"]["review"] = {"reviewer": "A. Reviewer", "date": "2026-11-11", "reference": "review note 1"}
+    assert any("SB-012: the reviewer is not one the owner designated" in e for e in backlog.validate(data))
+    by_id["SB-012"]["review"]["reviewer"] = data["designated_reviewers"][0]
     assert not any("SB-012" in e for e in backlog.validate(data))
+    data["designated_reviewers"] = []  # with nobody designated, any reviewer other than the implementer is accepted
+    by_id["SB-012"]["review"]["reviewer"] = "A. Reviewer"
+    assert not any("SB-012" in e for e in backlog.validate(data))
+
+
+def test_the_owner_has_designated_a_reviewer_and_nothing_was_accepted_by_that_alone():
+    data = _data()
+    assert data["designated_reviewers"] and not {x.casefold() for x in data["designated_reviewers"]} & {x.casefold() for x in data["implementers"]}
+    by_id = {t["id"]: t for t in data["tickets"]}
+    assert all(by_id[i]["status"] == "IN REVIEW" and "review" not in by_id[i] for i in ("SB-010", "SB-011", "SB-012"))
 
 
 def test_every_ticket_declares_security_relevance_and_gate():

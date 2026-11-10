@@ -15,7 +15,7 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | Blocked | 0 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings (verified weaknesses) | 0 |
-| Last recorded test run | 252 passed, 0 failed |
+| Last recorded test run | 253 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
 | Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |
@@ -86,7 +86,7 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 ## Owner decisions outstanding
 
 - Provider, region and monthly cost ceiling (requested through SB-070)
-- Designate the independent reviewer for security-relevant tickets and record an acceptance decision for SB-010, SB-011 and SB-012 (PD-004). The external reviews of 2026-11-10 are technical feedback and say so themselves; they are not that acceptance. Until it is recorded the three tickets stay IN REVIEW and the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)
+- Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
 - Reconsider repository visibility: it is public by decision OD-001; the specification recommends private

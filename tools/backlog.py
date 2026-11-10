@@ -140,6 +140,7 @@ def find_cycle(tickets: dict[str, dict]) -> list[str]:
 def validate(data: dict, spec: dict | None = None) -> list[str]:
     errors: list[str] = []
     implementers = {x.casefold() for x in data.get("implementers", [])}
+    designated = {x.casefold() for x in data.get("designated_reviewers", [])}
     ids = [t["id"] for t in data["tickets"]]
     errors += [f"duplicate id {i}" for i, n in Counter(ids).items() if n > 1]
     tickets = {t["id"]: t for t in data["tickets"]}
@@ -182,6 +183,8 @@ def validate(data: dict, spec: dict | None = None) -> list[str]:
                 errors.append(f"{tid}: security-relevant and DONE without a recorded independent review (reviewer, date, reference)")
             elif review["reviewer"].casefold() in implementers:
                 errors.append(f"{tid}: the reviewer is the implementer; an independent review is required (PD-004)")
+            elif designated and review["reviewer"].casefold() not in designated:
+                errors.append(f"{tid}: the reviewer is not one the owner designated ({', '.join(data['designated_reviewers'])})")
     for e in data["epics"]:
         if e["initiative"] not in data["initiatives"]:
             errors.append(f"{e['id']}: unknown initiative {e['initiative']}")
