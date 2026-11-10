@@ -41,15 +41,15 @@ Of the 134 covered: 2 accepted (every ticket DONE), 1 implemented and in review,
 | CR-22 | SB-052, SB-073, SB-088 | planned | BACKLOG | — | — |
 | CR-23 | SB-085 | planned | BACKLOG | — | — |
 | CR-24 | SB-079 | planned | BACKLOG | — | — |
-| CR-25 | SB-010, SB-024, SB-034 | planned | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004) | — |
+| CR-25 | SB-010, SB-024, SB-034 | planned | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py. Security review of 2026-11-10: ACCEPT WITH CONDITIONS (RV-07). Corrected on branch sb/review-sb010-sb011: strict member validation in every function, boolean flags, exact labels; tests/unit/test_domain_adversarial.py. Awaiting the reviewer's second review | — |
 | CR-26 | SB-034 | planned | BACKLOG | — | — |
 | CR-27 | SB-042, SB-055 | planned | BACKLOG | — | — |
 | CR-28 | SB-064 | planned | BACKLOG | — | — |
-| CR-29 | SB-010 | implemented, in review | IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004) | — |
+| CR-29 | SB-010 | implemented, in review | IN REVIEW | commit e1e9fda; tests/unit/test_domain.py. Security review of 2026-11-10: ACCEPT WITH CONDITIONS (RV-07). Corrected on branch sb/review-sb010-sb011: strict member validation in every function, boolean flags, exact labels; tests/unit/test_domain_adversarial.py. Awaiting the reviewer's second review | — |
 | CR-30 | SB-058 | planned | BACKLOG | — | — |
-| CR-31 | SB-012, SB-058 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires. | If the managed-identity spike (SB-050) shows the provider cannot bind an assertion to the proposal hash, A1 05 replaces this with fresh re-authentication plus server-side binding; that would be recorded as a decision, not assumed. |
+| CR-31 | SB-012, SB-058 | planned | BACKLOG, DONE | commits e1e9fda and 755f171 (hardened after review finding RV-01), on main at fae9316: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Accepted by the designated reviewer on 2026-11-10 within the scope of the canonicalisation utility; relayed by the owner | If the managed-identity spike (SB-050) shows the provider cannot bind an assertion to the proposal hash, A1 05 replaces this with fresh re-authentication plus server-side binding; that would be recorded as a decision, not assumed. |
 | CR-32 | SB-059 | planned | BACKLOG | — | — |
-| CR-33 | SB-012, SB-026, SB-048, SB-060 | planned | BACKLOG, IN REVIEW | commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires. | — |
+| CR-33 | SB-012, SB-026, SB-048, SB-060 | planned | BACKLOG, DONE | commits e1e9fda and 755f171 (hardened after review finding RV-01), on main at fae9316: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Accepted by the designated reviewer on 2026-11-10 within the scope of the canonicalisation utility; relayed by the owner | — |
 | CR-34 | SB-062 | planned | BACKLOG | — | — |
 | CR-35 | SB-062 | planned | BACKLOG | — | — |
 | CR-36 | SB-026, SB-042, SB-053 | planned | BACKLOG | — | — |
@@ -58,7 +58,7 @@ Of the 134 covered: 2 accepted (every ticket DONE), 1 implemented and in review,
 | CR-39 | SB-042, SB-061 | planned | BACKLOG | — | The K1 ceiling is in scope. The elevation half is not built: the first-release profile (A1 05 §2) defers it and the repository boundary forbids it without separate owner authorisation; its absence is tested. |
 | CR-40 | SB-041 | planned | BACKLOG | — | — |
 | CR-41 | SB-057, SB-072 | planned | BACKLOG | — | — |
-| CR-42 | SB-011, SB-027, SB-046, SB-056 | planned | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py: tier rules, envelope, expiry boundary. Awaiting review (PD-004) | — |
+| CR-42 | SB-011, SB-027, SB-046, SB-056 | planned | BACKLOG, IN REVIEW | commit e1e9fda; tests/unit/test_domain.py. Security review of 2026-11-10: ACCEPT WITH CONDITIONS (RV-08). Corrected on branch sb/review-sb010-sb011: timestamps and lifetimes validated in every function, lifetime policy, fail-closed `servable`; tests/unit/test_domain_adversarial.py. Awaiting the reviewer's second review | — |
 | CR-43 | SB-050 | planned | READY | — | — |
 | CR-44 | SB-060 | planned | BACKLOG | — | — |
 | CR-45 | SB-082 | planned | BACKLOG | — | K3 purge is specified but cannot be exercised: K3 material is not admitted in the first release. |

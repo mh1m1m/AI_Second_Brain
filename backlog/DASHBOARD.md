@@ -5,17 +5,17 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 
 | Measure | Value |
 |---|---|
-| Tickets done | 11 of 80 (14%) |
-| Points done | 22 of 316 (7%) |
-| Implemented and tested, awaiting review | 3 |
-| Security-relevant tickets awaiting independent review | SB-010, SB-011, SB-012 |
+| Tickets done | 12 of 80 (15%) |
+| Points done | 24 of 316 (8%) |
+| Implemented and tested, awaiting review | 2 |
+| Security-relevant tickets awaiting independent review | SB-010, SB-011 |
 | Ready only provisionally (built on unreviewed security work) | none |
 | Gates open | none |
 | Current wave | 1 |
 | Blocked | 0 |
 | Open P0 or P1 bugs | 0 |
 | Open security findings (verified weaknesses) | 0 |
-| Last recorded test run | 253 passed, 0 failed |
+| Last recorded test run | 345 passed, 0 failed |
 | Deployment | Not deployed. No provider approved (BLK-003) |
 | Critical path remaining | 63 points: SB-020 → SB-022 → SB-024 → SB-040 → SB-041 → SB-042 → SB-055 → SB-061 → SB-070 → SB-069 → SB-071 → SB-074 → SB-078 |
 | Effort | Estimates are in points; actual effort is not recorded |
@@ -26,8 +26,8 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 |---|---|
 | BACKLOG | 63 |
 | READY | 3 |
-| IN REVIEW | 3 |
-| DONE | 11 |
+| IN REVIEW | 2 |
+| DONE | 12 |
 
 ## By initiative
 
@@ -36,7 +36,7 @@ Computed from ticket states. A ticket counts as complete only when DONE.
 | INIT-01 | Repository and Development Foundation | EP-01, EP-02 | 8 | 8 | 100% |
 | INIT-02 | Cloud Architecture and Infrastructure | EP-19 | 4 | 0 | 0% |
 | INIT-03 | PostgreSQL Data Platform | EP-04 | 8 | 0 | 0% |
-| INIT-04 | Knowledge Ingestion and Classification | EP-03, EP-06, EP-07 | 10 | 1 | 10% |
+| INIT-04 | Knowledge Ingestion and Classification | EP-03, EP-06, EP-07 | 10 | 2 | 20% |
 | INIT-05 | Arabic-First and Bilingual Retrieval | EP-08, EP-09 | 7 | 2 | 29% |
 | INIT-06 | MCP Server and Claude Code Integration | EP-13 | 4 | 0 | 0% |
 | INIT-07 | Persistent Memory and Session Continuity | EP-10 | 8 | 0 | 0% |
@@ -57,20 +57,20 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 | Gate | Kind | Title | Status | Dependencies not yet DONE | Security-relevant work beneath it not yet accepted |
 |---|---|---|---|---|---|
 | SB-055 | security-integration | MCP tools: health, search, retrieve, projects | BACKLOG | SB-054, SB-042, SB-053 | SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054 |
-| SB-056 | security-integration | MCP tools: sessions, session context, artifacts, propose | BACKLOG | SB-054, SB-046, SB-048, SB-053 | SB-011, SB-012, SB-026, SB-027, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054 |
-| SB-058 | security-integration | Approval surface: owner login, proposal view, bound decision | BACKLOG | SB-048, SB-050 | SB-012, SB-026, SB-048, SB-050 |
-| SB-060 | security-integration | Apply on approval: one transaction, single use, expiry | BACKLOG | SB-058 | SB-012, SB-026, SB-048, SB-050, SB-058 |
-| SB-070 | release | Consolidated deployment authorisation request | BACKLOG | SB-061, SB-067 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-071 | release | Deploy to the authorised environment | BACKLOG | SB-069 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-074 | release | End-to-end scenarios UX-A to UX-J | BACKLOG | SB-056, SB-060, SB-066, SB-071 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-078 | release | Production-readiness assessment and reviewer package | BACKLOG | SB-074, SB-076 | SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065, SB-076 |
+| SB-056 | security-integration | MCP tools: sessions, session context, artifacts, propose | BACKLOG | SB-054, SB-046, SB-048, SB-053 | SB-011, SB-026, SB-027, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054 |
+| SB-058 | security-integration | Approval surface: owner login, proposal view, bound decision | BACKLOG | SB-048, SB-050 | SB-026, SB-048, SB-050 |
+| SB-060 | security-integration | Apply on approval: one transaction, single use, expiry | BACKLOG | SB-058 | SB-026, SB-048, SB-050, SB-058 |
+| SB-070 | release | Consolidated deployment authorisation request | BACKLOG | SB-061, SB-067 | SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-071 | release | Deploy to the authorised environment | BACKLOG | SB-069 | SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-074 | release | End-to-end scenarios UX-A to UX-J | BACKLOG | SB-056, SB-060, SB-066, SB-071 | SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-078 | release | Production-readiness assessment and reviewer package | BACKLOG | SB-074, SB-076 | SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065, SB-076 |
 
 ## By wave (milestones)
 
 | Wave | Tickets | Done | In review | Ready | Blocked |
 |---|---|---|---|---|---|
 | 0 | 7 | 7 | 0 | 0 | 0 |
-| 1 | 21 | 4 | 3 | 1 | 0 |
+| 1 | 21 | 5 | 2 | 1 | 0 |
 | 2 | 11 | 0 | 0 | 0 | 0 |
 | 3 | 14 | 0 | 0 | 2 | 0 |
 | 4 | 15 | 0 | 0 | 0 | 0 |
@@ -86,8 +86,9 @@ A gate becomes READY only when every dependency is DONE, which includes independ
 ## Owner decisions outstanding
 
 - Provider, region and monthly cost ceiling (requested through SB-070)
-- Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)
+- Relay the designated reviewer's second review of SB-010 and SB-011 (request: docs/reviews/review-request-2-SB-010-011.md). SB-012 is accepted and DONE. The security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed until every security-relevant ticket beneath them is accepted (BLK-004)
 - Pass mark for the unprompted-retrieval trial (SB-075)
 - Acceptance or not of the residual risks listed in the CN1.1 addendum
 - Reconsider repository visibility: it is public by decision OD-001; the specification recommends private
+- Confirm or change the provisional limits of decision PD-012: unreviewed notes live at most 90 days; a submission time may lead the clock by at most 5 minutes
 

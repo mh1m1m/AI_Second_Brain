@@ -26,18 +26,18 @@
 | SB-045 | Projects registry with repository references | feature | EP-10 | 2 | P0 | 3 | SB-022 | — | — | — |
 | SB-046 | Session open and close with the unreviewed-note store | feature | EP-10 | 2 | P0 | 5 | SB-027, SB-011 | review required | — | provisional until reviewed: SB-011, SB-027 |
 | SB-047 | Memory lifecycle service | feature | EP-10 | 2 | P0 | 8 | SB-025 | — | — | — |
-| SB-048 | Proposal engine: validation, duplicates, limits, expiry | feature | EP-11 | 2 | P0 | 5 | SB-026, SB-012 | review required | — | provisional until reviewed: SB-012, SB-026 |
-| SB-049 | Promotion to workspace level | task | EP-10 | 2 | P1 | 3 | SB-047, SB-048 | — | — | provisional until reviewed: SB-012, SB-026, SB-048 |
+| SB-048 | Proposal engine: validation, duplicates, limits, expiry | feature | EP-11 | 2 | P0 | 5 | SB-026, SB-012 | review required | — | provisional until reviewed: SB-026 |
+| SB-049 | Promotion to workspace level | task | EP-10 | 2 | P1 | 3 | SB-047, SB-048 | — | — | provisional until reviewed: SB-026, SB-048 |
 | SB-052 | OAuth resource server: issuer, audience, scope, expiry | feature | EP-12 | 3 | P0 | 5 | SB-051, SB-050 | review required | — | provisional until reviewed: SB-050 |
 | SB-053 | Grant enforcement | feature | EP-12 | 3 | P0 | 3 | SB-052, SB-026 | review required | — | provisional until reviewed: SB-026, SB-050, SB-052 |
 | SB-054 | MCP server: tool contracts and schemas | feature | EP-13 | 3 | P0 | 5 | SB-051 | review required | — | — |
 | SB-055 | MCP tools: health, search, retrieve, projects | feature | EP-13 | 3 | P0 | 5 | SB-054, SB-042, SB-053 | review required | security-integration | held until reviewed: SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054 |
-| SB-056 | MCP tools: sessions, session context, artifacts, propose | feature | EP-13 | 3 | P0 | 5 | SB-054, SB-046, SB-048, SB-053 | review required | security-integration | held until reviewed: SB-011, SB-012, SB-026, SB-027, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054 |
+| SB-056 | MCP tools: sessions, session context, artifacts, propose | feature | EP-13 | 3 | P0 | 5 | SB-054, SB-046, SB-048, SB-053 | review required | security-integration | held until reviewed: SB-011, SB-026, SB-027, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054 |
 | SB-057 | Rate and size limits; audit of every call | task | EP-12 | 3 | P0 | 3 | SB-055 | review required | — | provisional until reviewed: SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054, SB-055 |
-| SB-058 | Approval surface: owner login, proposal view, bound decision | feature | EP-11 | 3 | P0 | 8 | SB-048, SB-050 | review required | security-integration | held until reviewed: SB-012, SB-026, SB-048, SB-050 |
-| SB-059 | Approval surface hardening | task | EP-11 | 3 | P0 | 5 | SB-058 | review required | — | provisional until reviewed: SB-012, SB-026, SB-048, SB-050, SB-058 |
-| SB-060 | Apply on approval: one transaction, single use, expiry | task | EP-11 | 3 | P0 | 3 | SB-058 | review required | security-integration | held until reviewed: SB-012, SB-026, SB-048, SB-050, SB-058 |
-| SB-061 | Security test suite: separation, replay, project and ceiling boundaries | task | EP-17 | 3 | P0 | 8 | SB-055, SB-056, SB-060 | review required | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060 |
+| SB-058 | Approval surface: owner login, proposal view, bound decision | feature | EP-11 | 3 | P0 | 8 | SB-048, SB-050 | review required | security-integration | held until reviewed: SB-026, SB-048, SB-050 |
+| SB-059 | Approval surface hardening | task | EP-11 | 3 | P0 | 5 | SB-058 | review required | — | provisional until reviewed: SB-026, SB-048, SB-050, SB-058 |
+| SB-060 | Apply on approval: one transaction, single use, expiry | task | EP-11 | 3 | P0 | 3 | SB-058 | review required | security-integration | held until reviewed: SB-026, SB-048, SB-050, SB-058 |
+| SB-061 | Security test suite: separation, replay, project and ceiling boundaries | task | EP-17 | 3 | P0 | 8 | SB-055, SB-056, SB-060 | review required | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060 |
 | SB-062 | Repository locators | feature | EP-14 | 4 | P1 | 3 | SB-045 | — | — | — |
 | SB-063 | Bootstrap skill and project instruction template | feature | EP-20 | 4 | P1 | 2 | SB-055 | — | — | provisional until reviewed: SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054, SB-055 |
 | SB-064 | Deterministic Markdown and JSON export | feature | EP-15 | 4 | P1 | 8 | SB-047 | — | — | — |
@@ -45,25 +45,25 @@
 | SB-066 | Restore into a scratch environment with verification | feature | EP-15 | 4 | P0 | 5 | SB-065 | — | — | provisional until reviewed: SB-028, SB-065 |
 | SB-067 | Recovery drill with synthetic data | task | EP-15 | 4 | P0 | 2 | SB-066 | — | — | provisional until reviewed: SB-028, SB-065 |
 | SB-068 | Container image and reproducible build | task | EP-19 | 5 | P1 | 3 | SB-051 | — | — | — |
-| SB-069 | Infrastructure definitions for the approved provider | task | EP-19 | 5 | P1 | 5 | SB-068, SB-070 | — | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-070 | Consolidated deployment authorisation request | task | EP-16 | 5 | P0 | 2 | SB-061, SB-067 | — | release | held until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-071 | Deploy to the authorised environment | task | EP-16 | 5 | P0 | 5 | SB-069 | — | release | held until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-072 | Monitoring, alerts and cost alarm | task | EP-16 | 5 | P1 | 3 | SB-071 | — | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-073 | Client compatibility trial with the deployed connector | research | EP-17 | 6 | P0 | 5 | SB-071 | — | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-074 | End-to-end scenarios UX-A to UX-J | task | EP-17 | 6 | P0 | 8 | SB-056, SB-060, SB-066, SB-071 | — | release | held until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-075 | Trial: how often sessions consult the brain unprompted | research | EP-17 | 6 | P0 | 3 | SB-073, SB-063 | — | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
-| SB-076 | Review against the residual-risk register | task | EP-18 | 7 | P0 | 3 | SB-061 | review required | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061 |
+| SB-069 | Infrastructure definitions for the approved provider | task | EP-19 | 5 | P1 | 5 | SB-068, SB-070 | — | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-070 | Consolidated deployment authorisation request | task | EP-16 | 5 | P0 | 2 | SB-061, SB-067 | — | release | held until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-071 | Deploy to the authorised environment | task | EP-16 | 5 | P0 | 5 | SB-069 | — | release | held until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-072 | Monitoring, alerts and cost alarm | task | EP-16 | 5 | P1 | 3 | SB-071 | — | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-073 | Client compatibility trial with the deployed connector | research | EP-17 | 6 | P0 | 5 | SB-071 | — | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-074 | End-to-end scenarios UX-A to UX-J | task | EP-17 | 6 | P0 | 8 | SB-056, SB-060, SB-066, SB-071 | — | release | held until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-075 | Trial: how often sessions consult the brain unprompted | research | EP-17 | 6 | P0 | 3 | SB-073, SB-063 | — | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065 |
+| SB-076 | Review against the residual-risk register | task | EP-18 | 7 | P0 | 3 | SB-061 | review required | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061 |
 | SB-077 | Operator documentation and runbooks | task | EP-21 | 7 | P1 | 5 | SB-067 | — | — | provisional until reviewed: SB-028, SB-065 |
-| SB-078 | Production-readiness assessment and reviewer package | task | EP-18 | 7 | P0 | 3 | SB-074, SB-076 | — | release | held until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065, SB-076 |
-| SB-079 | Deterministic scheduled jobs: note expiry, proposal expiry, orphan sweep, revalidation flags | task | EP-19 | 3 | P1 | 5 | SB-036, SB-046, SB-047, SB-048 | review required | — | provisional until reviewed: SB-011, SB-012, SB-026, SB-027, SB-046, SB-048 |
+| SB-078 | Production-readiness assessment and reviewer package | task | EP-18 | 7 | P0 | 3 | SB-074, SB-076 | — | release | held until reviewed: SB-010, SB-011, SB-026, SB-027, SB-028, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056, SB-058, SB-060, SB-061, SB-065, SB-076 |
+| SB-079 | Deterministic scheduled jobs: note expiry, proposal expiry, orphan sweep, revalidation flags | task | EP-19 | 3 | P1 | 5 | SB-036, SB-046, SB-047, SB-048 | review required | — | provisional until reviewed: SB-011, SB-026, SB-027, SB-046, SB-048 |
 | SB-080 | Source lifecycle: new versions and withdrawal | feature | EP-07 | 2 | P1 | 3 | SB-035 | — | — | provisional until reviewed: SB-010, SB-034 |
 | SB-081 | Entities with bilingual aliases, typed relationships and link integrity | feature | EP-10 | 4 | P2 | 8 | SB-047 | — | — | — |
-| SB-082 | Retention, archive and deletion by class | feature | EP-10 | 4 | P1 | 5 | SB-047, SB-060, SB-065 | review required | — | provisional until reviewed: SB-012, SB-026, SB-028, SB-048, SB-050, SB-058, SB-060, SB-065 |
+| SB-082 | Retention, archive and deletion by class | feature | EP-10 | 4 | P1 | 5 | SB-047, SB-060, SB-065 | review required | — | provisional until reviewed: SB-026, SB-028, SB-048, SB-050, SB-058, SB-060, SB-065 |
 | SB-083 | Project records: decisions, milestones, tasks, risks, commitments and open questions | feature | EP-10 | 4 | P1 | 5 | SB-045, SB-047 | — | — | — |
 | SB-084 | Project state as of a date and cited status report | feature | EP-10 | 4 | P2 | 5 | SB-043, SB-083 | — | — | — |
 | SB-085 | Isolated extraction worker with PDF, DOCX and HTML parsers | feature | EP-07 | 4 | P2 | 8 | SB-035 | review required | — | provisional until reviewed: SB-010, SB-034 |
 | SB-086 | Runtime architecture record: components, trust boundaries, configuration and secret handling | task | EP-19 | 3 | P1 | 2 | SB-051 | — | — | — |
-| SB-087 | Session-close skill: unreviewed summary and proposed memory candidates | feature | EP-20 | 4 | P1 | 3 | SB-056, SB-063 | — | — | provisional until reviewed: SB-010, SB-011, SB-012, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056 |
+| SB-087 | Session-close skill: unreviewed summary and proposed memory candidates | feature | EP-20 | 4 | P1 | 3 | SB-056, SB-063 | — | — | provisional until reviewed: SB-010, SB-011, SB-026, SB-027, SB-042, SB-046, SB-048, SB-050, SB-052, SB-053, SB-054, SB-055, SB-056 |
 | SB-088 | Connector set-up check: genuine service and shadowing guard | feature | EP-20 | 4 | P1 | 3 | SB-055 | review required | — | provisional until reviewed: SB-010, SB-026, SB-042, SB-050, SB-052, SB-053, SB-054, SB-055 |
 | SB-089 | Tool and interface reference generated from the schemas | task | EP-21 | 4 | P2 | 2 | SB-054 | — | — | provisional until reviewed: SB-054 |
 | SB-090 | Architecture overview, contributor guide and handover notes | task | EP-21 | 7 | P1 | 3 | SB-077 | — | — | provisional until reviewed: SB-028, SB-065 |
@@ -77,15 +77,14 @@
 | SB-050 | Spike CV-19: can a managed identity service carry owner login and connector OAuth | research | EP-12 | 3 | P0 | 2 | — | review required | — | — |
 | SB-051 | Service skeleton: application, configuration, health | task | EP-13 | 3 | P0 | 3 | SB-001 | — | — | — |
 
-## IN REVIEW (3)
+## IN REVIEW (2)
 
 | Ticket | Title | Type | Epic | Wave | Priority | Points | Depends on | Security | Gate | Readiness |
 |---|---|---|---|---|---|---|---|---|---|---|
 | SB-010 | Implement the five-class data classification model | feature | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
 | SB-011 | Implement memory tiers and the unreviewed-context envelope | feature | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
-| SB-012 | Implement canonical serialisation and hashing of proposals | task | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
 
-## DONE (11)
+## DONE (12)
 
 | Ticket | Title | Type | Epic | Wave | Priority | Points | Depends on | Security | Gate | Readiness |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -96,6 +95,7 @@
 | SB-005 | Push to the GitHub repository | task | EP-01 | 0 | P0 | 1 | SB-001 | — | — | — |
 | SB-006 | Mirror tickets to GitHub Issues with labels and milestones | task | EP-02 | 0 | P1 | 3 | SB-005, SB-002 | — | — | — |
 | SB-007 | Spike: which GitHub project-management features a session can use | research | EP-02 | 0 | P1 | 1 | — | — | — | — |
+| SB-012 | Implement canonical serialisation and hashing of proposals | task | EP-03 | 1 | P0 | 2 | SB-001 | review required | — | — |
 | SB-030 | Implement text normalisation ar-en-1 | feature | EP-08 | 1 | P0 | 2 | SB-001 | — | — | — |
 | SB-031 | Implement light stemmer ar-light-1 | feature | EP-08 | 1 | P0 | 2 | SB-030 | — | — | — |
 | SB-032 | Object store interface with a local adapter for tests | task | EP-06 | 1 | P0 | 3 | SB-001 | — | — | — |
