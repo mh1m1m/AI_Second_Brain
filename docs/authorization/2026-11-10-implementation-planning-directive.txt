@@ -1,0 +1,583 @@
+AI SECOND BRAIN 6.0
+
+ENTERPRISE IMPLEMENTATION PLANNING & AUTONOMOUS ENGINEERING EXECUTION
+
+Linear-Style Ticket Management × GitHub Projects × Dependency-Driven Development × Continuous Delivery
+
+STATUS: FULL IMPLEMENTATION AUTHORIZED
+
+DIRECTIVE TYPE: EXECUTION PLANNING AND PROJECT MANAGEMENT
+
+PRIORITY: IMMEDIATE
+
+⸻
+
+0. EXECUTIVE MANDATE
+
+Act as an integrated software engineering and technical delivery organization comprising:
+
+1. Principal Software Architect.
+2. Technical Program Manager.
+3. Senior Python Backend Engineer.
+4. PostgreSQL Database Architect.
+5. MCP Integration Engineer.
+6. Cloud Infrastructure Engineer.
+7. Application Security Architect.
+8. DevSecOps Engineer.
+9. QA Automation Engineer.
+10. Product Manager.
+11. Technical Documentation Engineer.
+12. Independent Quality Reviewer.
+
+Your objective is to plan, track, implement, test, and deliver the complete AI Second Brain 6.0 platform.
+
+The previous Full Implementation Authorization remains in force, including its security, data-access, spending, and deployment restrictions.
+
+Do not return to specification-only mode.
+
+Before writing application code, establish a complete implementation plan and a persistent, structured project-management system.
+
+Once the plan and initial backlog are established, immediately begin implementing the first unblocked tasks.
+
+Do not request another general authorization to start development.
+
+⸻
+
+1. IMPLEMENTATION MANAGEMENT SYSTEM
+
+Use a Linear-inspired engineering workflow.
+
+Prefer native GitHub capabilities:
+
+* GitHub Issues.
+* GitHub Projects.
+* GitHub Milestones.
+* GitHub Pull Requests.
+* GitHub Actions.
+* GitHub Releases.
+* GitHub Discussions, where appropriate.
+
+First inspect existing repositories and available GitHub capabilities.
+
+If a suitable repository or project board already exists, reuse it.
+
+Otherwise, create a new private repository and project board within the permissions granted by the Full Implementation Authorization.
+
+Do not create duplicate repositories, duplicate tickets, or unnecessary external project-management infrastructure.
+
+If GitHub Projects functionality is unavailable, use GitHub Issues plus a version-controlled backlog as the fallback.
+
+Do not claim that a ticket or board exists remotely unless it was actually created.
+
+⸻
+
+2. PROJECT HIERARCHY
+
+Organize the project using the following hierarchy:
+
+PROGRAM
+AI Second Brain 6.0
+
+INITIATIVES
+Major product outcomes.
+
+EPICS
+Major engineering capabilities.
+
+FEATURES
+User-facing or system-level capabilities.
+
+TASKS
+Independently executable engineering work.
+
+SUBTASKS
+Small implementation steps where needed.
+
+BUGS
+Verified defects.
+
+SECURITY FINDINGS
+Security vulnerabilities, weaknesses, or failed controls.
+
+TECHNICAL DEBT
+Non-blocking engineering improvements.
+
+RESEARCH / SPIKES
+Time-boxed investigations needed to resolve implementation uncertainty.
+
+Every item must have a stable identifier.
+
+Use the hierarchy supported by the selected tracking platform. Where GitHub lacks a native hierarchy level, represent it through issue types, parent-child relationships, labels, or documented conventions.
+
+⸻
+
+3. COMPLETE WORK BREAKDOWN STRUCTURE
+
+Create a comprehensive Work Breakdown Structure covering all implementation stages.
+
+At minimum, include the following initiatives:
+
+INIT-01 — Repository and Development Foundation
+
+Repository discovery, project structure, dependency management, coding standards, local development, CI/CD foundation.
+
+INIT-02 — Cloud Architecture and Infrastructure
+
+Cloud hosting, deployment environments, configuration, networking, managed services, infrastructure as code.
+
+INIT-03 — PostgreSQL Data Platform
+
+Schema, migrations, transactions, indexes, data integrity, revisions, identifiers, concurrency, and performance.
+
+INIT-04 — Knowledge Ingestion and Classification
+
+Input validation, source registration, classification, immutable storage, parsing, provenance, and ingestion controls.
+
+INIT-05 — Arabic-First and Bilingual Retrieval
+
+Arabic normalization, full-text search, ranking, filtering, relevance evaluation, benchmarking, and retrieval quality.
+
+INIT-06 — MCP Server and Claude Code Integration
+
+Remote MCP tools, authentication, client compatibility, session bootstrap, tool contracts, and integration testing.
+
+INIT-07 — Persistent Memory and Session Continuity
+
+Project memory, session summaries, unreviewed context, promotion, expiry, revision history, and cross-session retrieval.
+
+INIT-08 — Governance and Independent Approval
+
+Proposal workflow, approval interface, authentication, authorization, immutable proposal binding, and audit trails.
+
+INIT-09 — GitHub and Multi-Project Integration
+
+Repository mapping, GitHub references, project discovery, permissions, and cross-project knowledge controls.
+
+INIT-10 — Security, Privacy and Threat Protection
+
+Identity, scoped permissions, data classification, secrets management, prompt-injection containment, logging, and security testing.
+
+INIT-11 — Backup, Recovery and Portability
+
+Encrypted exports, independent backups, recovery drills, disaster recovery, and provider migration.
+
+INIT-12 — Claude Code Skills and Developer Experience
+
+Bootstrap skills, project instructions, context retrieval workflows, session close workflows, and developer ergonomics.
+
+INIT-13 — Testing and Quality Engineering
+
+Unit tests, integration tests, contract tests, end-to-end tests, performance tests, security tests, and regression tests.
+
+INIT-14 — Cloud Deployment and Operations
+
+Deployment, monitoring, alerts, cost controls, health checks, rollback, incident response, and operational runbooks.
+
+INIT-15 — Documentation and Knowledge Transfer
+
+Architecture documentation, API references, deployment guides, troubleshooting, security documentation, and operating procedures.
+
+INIT-16 — Production Readiness and Final Acceptance
+
+Acceptance scenarios, release criteria, independent review, production readiness, and final delivery.
+
+These initiatives are a minimum coverage framework.
+
+Add or consolidate workstreams where technically justified.
+
+Do not generate unnecessary tickets merely to increase the ticket count.
+
+⸻
+
+4. TICKET ENGINEERING STANDARD
+
+Every actionable engineering ticket must contain:
+
+A. Ticket ID
+
+Stable identifier.
+
+B. Title
+
+Concise, action-oriented description.
+
+C. Type
+
+Epic, feature, task, bug, security, research, or technical debt.
+
+D. Initiative / Parent
+
+The parent workstream.
+
+E. Objective
+
+The outcome the ticket must achieve.
+
+F. Scope
+
+Explicit implementation boundaries.
+
+G. Technical Requirements
+
+Applicable functional and nonfunctional requirements.
+
+H. Architecture References
+
+Relevant ADRs, CN1.1 documents, and security controls.
+
+I. Dependencies
+
+Blocking and blocked-by relationships.
+
+J. Priority
+
+P0 Critical, P1 High, P2 Medium, P3 Low.
+
+K. Complexity
+
+Story points or an equivalent effort estimate.
+
+L. Acceptance Criteria
+
+Objectively testable conditions.
+
+M. Test Requirements
+
+Unit, integration, security, performance, or end-to-end tests.
+
+N. Deliverables
+
+Expected code, configuration, documentation, or evidence.
+
+O. Definition of Done
+
+Conditions required before closure.
+
+P. Risks
+
+Implementation or security risks.
+
+Q. Status
+
+Current workflow state.
+
+R. Evidence
+
+Links to commits, pull requests, test results, or artifacts.
+
+Do not create vague tickets such as:
+
+“Implement security.”
+
+Instead, decompose the work into specific, independently testable deliverables.
+
+⸻
+
+5. WORKFLOW STATES
+
+Implement the following workflow:
+
+BACKLOG
+Not yet scheduled.
+
+READY
+Requirements and dependencies are satisfied.
+
+IN PROGRESS
+Actively being implemented.
+
+IN REVIEW
+Implementation completed; review pending.
+
+TESTING
+Automated or manual verification in progress.
+
+BLOCKED
+Cannot proceed because of a documented dependency.
+
+DONE
+All acceptance criteria and required tests passed.
+
+REOPENED
+Previously completed work failed a later check.
+
+Track blocking reasons explicitly.
+
+A task must never be marked DONE merely because code was written.
+
+⸻
+
+6. DEPENDENCY MANAGEMENT
+
+Create a dependency graph for all critical work.
+
+Identify:
+
+* Critical-path tasks.
+* Parallelizable workstreams.
+* External dependencies.
+* Security prerequisites.
+* Deployment prerequisites.
+* Required owner decisions.
+* Verification gates.
+
+Detect and eliminate circular dependencies.
+
+Do not schedule a task as READY if a mandatory prerequisite remains incomplete.
+
+Allow independent tasks to proceed while blocked work awaits resolution.
+
+⸻
+
+7. IMPLEMENTATION WAVES
+
+Organize execution into delivery waves.
+
+WAVE 0 — Engineering Foundation
+
+Repository, backlog, CI, development environment, coding standards.
+
+WAVE 1 — Core Data and Knowledge
+
+Database, provenance, classification, object storage, ingestion.
+
+WAVE 2 — Retrieval and Memory
+
+Arabic search, project registry, session memory, retrieval interfaces.
+
+WAVE 3 — MCP and Governance
+
+Remote MCP, authentication, proposals, approval interface, authorization.
+
+WAVE 4 — Integrations and Recovery
+
+GitHub integration, exports, backups, restore testing.
+
+WAVE 5 — Cloud Deployment
+
+Hosting, secure configuration, monitoring, deployment verification.
+
+WAVE 6 — End-to-End Acceptance
+
+Cross-session continuity, cross-project access, security boundaries, recovery, performance.
+
+WAVE 7 — Production Hardening
+
+Defect remediation, security review, documentation, operational readiness.
+
+These waves are delivery groupings, not mandatory sequential barriers.
+
+Parallelize safely where dependencies allow.
+
+⸻
+
+8. DEFINITION OF READY
+
+A ticket may enter READY only when:
+
+1. Its scope is clear.
+2. Its acceptance criteria are measurable.
+3. Dependencies are satisfied.
+4. Required interfaces are identified.
+5. Required permissions are available.
+6. Security implications are understood.
+7. It can be completed without violating authorization boundaries.
+
+If a ticket requires paid resources or an unapproved sensitive action, mark it BLOCKED and continue with other work.
+
+⸻
+
+9. DEFINITION OF DONE
+
+A ticket may be marked DONE only when:
+
+1. Required implementation exists.
+2. Relevant automated tests pass.
+3. Acceptance criteria are satisfied.
+4. Security requirements are met.
+5. Documentation is updated.
+6. Relevant code review is completed.
+7. Evidence is linked.
+8. No unresolved critical defect remains.
+9. Required integration checks pass.
+
+For deployment tickets, distinguish:
+
+* Code complete.
+* Tested.
+* Deployment ready.
+* Deployed.
+* Production verified.
+
+Do not conflate these states.
+
+⸻
+
+10. AUTOMATED TRACKING
+
+Configure automation where supported.
+
+When a pull request is opened, link it to the relevant ticket.
+
+When a pull request is merged, update the ticket according to its actual completion state.
+
+When CI fails, record the failure and prevent premature closure.
+
+When a critical security test fails, block the affected release.
+
+When a dependency is resolved, reassess blocked tasks.
+
+When a release is completed, generate a release summary.
+
+Use GitHub-native automation where possible.
+
+Do not introduce an unnecessary always-on orchestration service merely to manage tickets.
+
+⸻
+
+11. ENGINEERING DASHBOARD
+
+Create a project dashboard showing:
+
+* Overall completion percentage.
+* Completion by initiative.
+* Open epics.
+* Tickets by status.
+* Critical-path progress.
+* Blocked tasks.
+* P0/P1 defects.
+* Security findings.
+* Upcoming milestones.
+* Current delivery wave.
+* Test pass rates.
+* Deployment readiness.
+* Outstanding owner decisions.
+* Estimated versus actual effort.
+
+Calculate progress from verifiable ticket states.
+
+Do not count partially implemented tasks as complete.
+
+Do not fabricate delivery dates or completion percentages.
+
+⸻
+
+12. REQUIREMENTS TRACEABILITY
+
+Map every applicable requirement from:
+
+* IR1.1.
+* CN1.
+* CN1.1.
+* The CN1.1 addendum.
+* The final implementation authorization.
+
+to one or more implementation tickets and acceptance tests.
+
+Maintain bidirectional traceability:
+
+Requirement → Ticket → Code/Configuration → Test → Evidence.
+
+Every critical security control must have a corresponding implementation task and test.
+
+Flag requirements with no implementation coverage.
+
+Flag completed tasks with no verification evidence.
+
+⸻
+
+13. QUALITY GATES
+
+Establish automated and manual gates covering:
+
+* Static analysis.
+* Dependency security.
+* Secret scanning.
+* Database migration safety.
+* Authorization boundaries.
+* Approval separation.
+* Prompt-injection resistance.
+* Arabic retrieval quality.
+* Backup integrity.
+* Restore testing.
+* MCP integration.
+* Cross-project access.
+* Session continuity.
+* Deployment security.
+
+Security-critical failures must prevent release readiness.
+
+⸻
+
+14. AUTONOMOUS EXECUTION POLICY
+
+After creating the initial project plan and backlog:
+
+Immediately start implementing the highest-priority unblocked tickets.
+
+Do not stop merely because planning is complete.
+
+Do not ask me to approve each sprint or implementation wave.
+
+Do not repeatedly regenerate the full plan.
+
+Maintain the plan as a living engineering artifact.
+
+When new implementation discoveries require changes, update the affected tickets and dependencies.
+
+Preserve historical decisions and completed evidence.
+
+Escalate only material owner decisions, authorization boundaries, and external commitments.
+
+⸻
+
+15. PROGRESS REPORTING
+
+At meaningful execution checkpoints, report:
+
+IMPLEMENTATION STATUS
+
+* Current wave.
+* Completed tickets.
+* In-progress tickets.
+* Blocked tickets.
+* Tests executed.
+* Tests passed or failed.
+* Commits and pull requests.
+* Security findings.
+* Next executable tasks.
+* Owner decisions genuinely required.
+
+Use actual evidence.
+
+Do not substitute lengthy planning narratives for implementation progress.
+
+⸻
+
+16. REQUIRED FIRST EXECUTION
+
+Begin now.
+
+STEP 1: Inspect the existing repositories, project specifications, and available GitHub project-management capabilities.
+
+STEP 2: Establish the private implementation repository or reuse the appropriate existing one.
+
+STEP 3: Create the complete implementation hierarchy, dependency graph, milestones, and initial ticket backlog.
+
+STEP 4: Configure the tracking workflow and dashboard.
+
+STEP 5: Create the requirements-to-ticket traceability matrix.
+
+STEP 6: Identify the critical path and first unblocked tasks.
+
+STEP 7: Start implementing those tasks immediately.
+
+STEP 8: Report actual ticket IDs, repository references, initial commits, and test results.
+
+Do not stop at Step 6.
+
+Do not ask for another general implementation authorization.
+
+PLAN THE COMPLETE SYSTEM. TRACK EVERY ENGINEERING DELIVERABLE. IMPLEMENT ALL AUTHORIZED STAGES. VERIFY THE RESULTS.
+
+BEGIN EXECUTION NOW.
