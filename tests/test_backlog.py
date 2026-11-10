@@ -192,11 +192,16 @@ def test_nothing_is_done_before_its_dependencies_and_security_work_needs_an_inde
     assert not any("SB-012" in e for e in backlog.validate(data))
 
 
-def test_the_owner_has_designated_a_reviewer_and_nothing_was_accepted_by_that_alone():
+def test_acceptance_is_recorded_only_where_the_designated_reviewer_explicitly_gave_it():
     data = _data()
     assert data["designated_reviewers"] and not {x.casefold() for x in data["designated_reviewers"]} & {x.casefold() for x in data["implementers"]}
     by_id = {t["id"]: t for t in data["tickets"]}
-    assert all(by_id[i]["status"] == "IN REVIEW" and "review" not in by_id[i] for i in ("SB-010", "SB-011", "SB-012"))
+    assert all(by_id[i]["status"] == "IN REVIEW" and "review" not in by_id[i] for i in ("SB-010", "SB-011"))  # accepted with conditions only
+    review = by_id["SB-012"]["review"]
+    assert by_id["SB-012"]["status"] == "DONE" and review["reviewer"] in data["designated_reviewers"]
+    assert all(x in review["reference"] for x in ("canonical.py", "test_canonical.py", "does not cover SB-058"))
+    for t in data["tickets"]:  # nobody else was accepted on the strength of this review
+        assert "review" not in t or t["id"] == "SB-012"
 
 
 def test_every_ticket_declares_security_relevance_and_gate():

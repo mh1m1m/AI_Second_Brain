@@ -354,14 +354,16 @@
     "K4 is never storable",
     "`highest()` returns the maximum",
     "a grant ceiling comparison is total and tested for every pair",
-    "lowering a class is reported as needing tier 2"
+    "lowering a class is reported as needing tier 2",
+    "Every function accepts only DataClass members; plain integers, booleans and other values are refused (review condition RV-07)",
+    "clearance flags must be real booleans"
    ],
    "tests": "Unit tests over all class pairs.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "commit e1e9fda; tests/unit/test_domain.py: all 25 class pairs for ceiling and reclassification; storability rules. Awaiting review (PD-004)",
+   "evidence": "commit e1e9fda; tests/unit/test_domain.py. Security review of 2026-11-10: ACCEPT WITH CONDITIONS (RV-07). Corrected on branch sb/review-sb010-sb011: strict member validation in every function, boolean flags, exact labels; tests/unit/test_domain_adversarial.py. Awaiting the reviewer's second review",
    "elaborated": true,
    "security_relevant": true,
    "gate": ""
@@ -387,14 +389,17 @@
     "Only M1 and M2 are searchable knowledge",
     "M3 cannot be evidence or be promoted directly",
     "the envelope always carries tier, the fixed warning, session, grant, submitted and expiry times",
-    "expiry is computed and enforced"
+    "expiry is computed and enforced",
+    "Every function that takes a timestamp requires it to be timezone-aware, and every lifetime must be longer than zero and at most the stated maximum (review condition RV-08)",
+    "an expiry that cannot be decided is a refusal: `servable` returns False on any unusable input",
+    "retrieval-time expiry is still to be enforced in the database and service (SB-027, SB-046, SB-079)"
    ],
    "tests": "Unit tests including expiry boundaries.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
    "status": "IN REVIEW",
    "blocked_reason": "",
-   "evidence": "commit e1e9fda; tests/unit/test_domain.py: tier rules, envelope, expiry boundary. Awaiting review (PD-004)",
+   "evidence": "commit e1e9fda; tests/unit/test_domain.py. Security review of 2026-11-10: ACCEPT WITH CONDITIONS (RV-08). Corrected on branch sb/review-sb010-sb011: timestamps and lifetimes validated in every function, lifetime policy, fail-closed `servable`; tests/unit/test_domain_adversarial.py. Awaiting the reviewer's second review",
    "elaborated": true,
    "security_relevant": true,
    "gate": ""
@@ -430,12 +435,17 @@
    "tests": "Unit and property-style tests.",
    "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
    "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
-   "status": "IN REVIEW",
+   "status": "DONE",
    "blocked_reason": "",
-   "evidence": "commit e1e9fda, hardened after review finding RV-01: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Awaiting review (PD-004) Follow-up external review of commit 433bdf3 (2026-11-10) assessed finding RV-01 as corrected; that is technical feedback, not the recorded acceptance PD-004 requires.",
+   "evidence": "commits e1e9fda and 755f171 (hardened after review finding RV-01), on main at fae9316: docs/design/canonical-profile.md; tests/unit/test_canonical.py (normalisation collisions, duplicate JSON keys, nesting, unsupported types, security-relevant fields, batch membership and order, version binding, golden vectors). Accepted by the designated reviewer on 2026-11-10 within the scope of the canonicalisation utility; relayed by the owner",
    "elaborated": true,
    "security_relevant": true,
-   "gate": ""
+   "gate": "",
+   "review": {
+    "reviewer": "ChatGPT (GPT-6)",
+    "date": "2026-11-10",
+    "reference": "Independent Security Review — SB-010/SB-011/SB-012, 2026-11-10: ACCEPT. Inspected on main (fae9316): src/second_brain/domain/canonical.py, docs/design/canonical-profile.md, tests/unit/test_canonical.py. Recorded in docs/reviews/2026-11-10-security-review-SB-010-011-012.md. Code-level acceptance of the utility only; it does not cover SB-058, SB-060, SB-061 or RV-06"
+   }
   },
   {
    "id": "SB-020",
@@ -2807,13 +2817,14 @@
  "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
  "owner_decisions": [
   "Provider, region and monthly cost ceiling (requested through SB-070)",
-  "Relay the designated reviewer's documented review of SB-010, SB-011 and SB-012, one ticket at a time (OD-002). A ticket becomes DONE only when that review explicitly accepts it; until then the security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed (BLK-004)",
+  "Relay the designated reviewer's second review of SB-010 and SB-011 (request: docs/reviews/review-request-2-SB-010-011.md). SB-012 is accepted and DONE. The security-integration gates SB-055, SB-056, SB-058 and SB-060 stay closed until every security-relevant ticket beneath them is accepted (BLK-004)",
   "Pass mark for the unprompted-retrieval trial (SB-075)",
   "Acceptance or not of the residual risks listed in the CN1.1 addendum",
-  "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private"
+  "Reconsider repository visibility: it is public by decision OD-001; the specification recommends private",
+  "Confirm or change the provisional limits of decision PD-012: unreviewed notes live at most 90 days; a submission time may lead the clock by at most 5 minutes"
  ],
  "last_test_run": {
-  "passed": 253,
+  "passed": 346,
   "failed": 0
  },
  "implementers": [
