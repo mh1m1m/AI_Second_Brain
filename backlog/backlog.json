@@ -1,0 +1,2092 @@
+{
+ "program": "AI Second Brain 6.0",
+ "initiatives": {
+  "INIT-01": "Repository and Development Foundation",
+  "INIT-02": "Cloud Architecture and Infrastructure",
+  "INIT-03": "PostgreSQL Data Platform",
+  "INIT-04": "Knowledge Ingestion and Classification",
+  "INIT-05": "Arabic-First and Bilingual Retrieval",
+  "INIT-06": "MCP Server and Claude Code Integration",
+  "INIT-07": "Persistent Memory and Session Continuity",
+  "INIT-08": "Governance and Independent Approval",
+  "INIT-09": "GitHub and Multi-Project Integration",
+  "INIT-10": "Security, Privacy and Threat Protection",
+  "INIT-11": "Backup, Recovery and Portability",
+  "INIT-12": "Claude Code Skills and Developer Experience",
+  "INIT-13": "Testing and Quality Engineering",
+  "INIT-14": "Cloud Deployment and Operations",
+  "INIT-15": "Documentation and Knowledge Transfer",
+  "INIT-16": "Production Readiness and Final Acceptance"
+ },
+ "epics": [
+  {
+   "id": "EP-01",
+   "title": "Repository, tooling and CI",
+   "initiative": "INIT-01"
+  },
+  {
+   "id": "EP-02",
+   "title": "Backlog and tracking",
+   "initiative": "INIT-01"
+  },
+  {
+   "id": "EP-03",
+   "title": "Domain model: classification, tiers, hashing, identifiers",
+   "initiative": "INIT-04"
+  },
+  {
+   "id": "EP-04",
+   "title": "PostgreSQL schema and migrations",
+   "initiative": "INIT-03"
+  },
+  {
+   "id": "EP-05",
+   "title": "Audit chain",
+   "initiative": "INIT-10"
+  },
+  {
+   "id": "EP-06",
+   "title": "Object storage and originals",
+   "initiative": "INIT-04"
+  },
+  {
+   "id": "EP-07",
+   "title": "Ingestion and extraction",
+   "initiative": "INIT-04"
+  },
+  {
+   "id": "EP-08",
+   "title": "Arabic text and search",
+   "initiative": "INIT-05"
+  },
+  {
+   "id": "EP-09",
+   "title": "Retrieval benchmark",
+   "initiative": "INIT-05"
+  },
+  {
+   "id": "EP-10",
+   "title": "Projects, sessions and memory",
+   "initiative": "INIT-07"
+  },
+  {
+   "id": "EP-11",
+   "title": "Proposals and approval",
+   "initiative": "INIT-08"
+  },
+  {
+   "id": "EP-12",
+   "title": "Authentication, grants and limits",
+   "initiative": "INIT-10"
+  },
+  {
+   "id": "EP-13",
+   "title": "MCP server",
+   "initiative": "INIT-06"
+  },
+  {
+   "id": "EP-14",
+   "title": "GitHub references and bootstrap skill",
+   "initiative": "INIT-09"
+  },
+  {
+   "id": "EP-15",
+   "title": "Export, backup and recovery",
+   "initiative": "INIT-11"
+  },
+  {
+   "id": "EP-16",
+   "title": "Deployment and operations",
+   "initiative": "INIT-14"
+  },
+  {
+   "id": "EP-17",
+   "title": "End-to-end acceptance and security testing",
+   "initiative": "INIT-13"
+  },
+  {
+   "id": "EP-18",
+   "title": "Documentation and readiness",
+   "initiative": "INIT-16"
+  }
+ ],
+ "tickets": [
+  {
+   "id": "SB-001",
+   "title": "Create the repository skeleton and tooling",
+   "type": "task",
+   "epic": "EP-01",
+   "wave": 0,
+   "priority": "P0",
+   "points": 2,
+   "objective": "A repository any session can install, lint and test in one command.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "CN1.1 05; PD-005",
+   "depends_on": [],
+   "acceptance": [
+    "`pip install -e .[dev]` succeeds",
+    "`ruff check .` and `pytest` run",
+    "README and CLAUDE.md state mode and boundaries"
+   ],
+   "tests": "Smoke: the commands run in CI.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-002",
+   "title": "Build the backlog source of truth, validator and renderers",
+   "type": "task",
+   "epic": "EP-02",
+   "wave": 0,
+   "priority": "P0",
+   "points": 3,
+   "objective": "One machine-checked backlog from which board, dashboard, dependencies, traceability and ticket pages are generated.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "PD-002",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Validation rejects duplicate IDs, unknown dependencies, cycles, READY with unmet dependencies and DONE without evidence",
+    "rendering is deterministic",
+    "`render --check` detects stale files"
+   ],
+   "tests": "Unit tests for cycle detection, readiness and rendering.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-003",
+   "title": "Add the CI workflow",
+   "type": "task",
+   "epic": "EP-01",
+   "wave": 0,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Every push runs lint, tests and backlog validation; nothing deploys.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "CN1.1 05; PD-005",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Workflow file runs ruff, pytest, backlog validate and render --check",
+    "it has read-only permissions and no deployment step"
+   ],
+   "tests": "Verified on the first push to GitHub.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-004",
+   "title": "Create the decision log, blockers register and authorisation record",
+   "type": "task",
+   "epic": "EP-02",
+   "wave": 0,
+   "priority": "P1",
+   "points": 1,
+   "objective": "Provisional decisions, blockers and the owner's authorisation are in the repository.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "PD-002",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Decision log marks every entry as provisional",
+    "blockers name what each blocks and what clears it",
+    "the authorisation text is stored as received"
+   ],
+   "tests": "Review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-005",
+   "title": "Create the private GitHub repository and push",
+   "type": "task",
+   "epic": "EP-01",
+   "wave": 0,
+   "priority": "P0",
+   "points": 1,
+   "objective": "The work is in a private repository the owner controls.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "CN1.1 05; PD-005",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Repository exists, is private, and holds the full history",
+    "CI runs green"
+   ],
+   "tests": "CI run on GitHub.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-006",
+   "title": "Mirror tickets to GitHub Issues with labels and milestones",
+   "type": "task",
+   "epic": "EP-02",
+   "wave": 0,
+   "priority": "P1",
+   "points": 3,
+   "objective": "The owner can open GitHub and see what is built, in progress, blocked and left.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "PD-002",
+   "depends_on": [
+    "SB-005",
+    "SB-002"
+   ],
+   "acceptance": [
+    "One issue per ticket with type, priority, wave and status labels",
+    "one milestone per wave",
+    "pull requests reference their ticket",
+    "the mirror is regenerated from backlog.json, never edited by hand"
+   ],
+   "tests": "Dry-run test of the mirror payloads.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-007",
+   "title": "Spike: which GitHub project-management features a session can use",
+   "type": "research",
+   "epic": "EP-02",
+   "wave": 0,
+   "priority": "P1",
+   "points": 1,
+   "objective": "Know what tracking can be automated from a session.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "PD-002",
+   "depends_on": [],
+   "acceptance": [
+    "Findings recorded with the actual responses"
+   ],
+   "tests": "None.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-010",
+   "title": "Implement the five-class data classification model",
+   "type": "feature",
+   "epic": "EP-03",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Classes K0 to K4 with ordering, ceilings and the rule that a record takes the highest class of its evidence.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-25",
+    "CR-29"
+   ],
+   "architecture": "CN1.1 21; A1 03; ADR-016",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Unclassified input resolves to K2",
+    "K4 is never storable",
+    "`highest()` returns the maximum",
+    "a grant ceiling comparison is total and tested for every pair",
+    "lowering a class is reported as needing tier 2"
+   ],
+   "tests": "Unit tests over all class pairs.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-011",
+   "title": "Implement memory tiers and the unreviewed-context envelope",
+   "type": "feature",
+   "epic": "EP-03",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Tiers M1 to M4 with what each may be used for, and the fixed envelope for unreviewed session notes.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-42"
+   ],
+   "architecture": "CN1.1 21; A1 03; ADR-016",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Only M1 and M2 are searchable knowledge",
+    "M3 cannot be evidence or be promoted directly",
+    "the envelope always carries tier, the fixed warning, session, grant, submitted and expiry times",
+    "expiry is computed and enforced"
+   ],
+   "tests": "Unit tests including expiry boundaries.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-012",
+   "title": "Implement canonical serialisation and hashing of proposals",
+   "type": "task",
+   "epic": "EP-03",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "A proposal has one canonical byte form and one SHA-256, stable across key order and Unicode forms.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-31",
+    "CR-33"
+   ],
+   "architecture": "CN1.1 21; A1 03; ADR-016",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Equal payloads hash equally regardless of key order",
+    "any change to payload, dependencies or class changes the hash",
+    "a batch digest depends on order",
+    "non-JSON values are rejected"
+   ],
+   "tests": "Unit and property-style tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-020",
+   "title": "Spike: ephemeral PostgreSQL harness for tests",
+   "type": "research",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Tests can start and discard a local PostgreSQL without any cloud resource.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "A fixture creates a throwaway cluster, runs a query and removes it",
+    "skipped cleanly when PostgreSQL is absent"
+   ],
+   "tests": "The fixture's own test.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-021",
+   "title": "Spike CV-03: Arabic search on PostgreSQL against the SQLite record",
+   "type": "research",
+   "epic": "EP-08",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Executed evidence for the database decision.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-RET-003"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-020",
+    "SB-031"
+   ],
+   "acceptance": [
+    "The seventeen recorded queries are run for three index designs",
+    "results are compared with the SQLite record and stored",
+    "the decision log states what follows"
+   ],
+   "tests": "The probe itself.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-022",
+   "title": "Schema v1 core: workspace, projects, objects, sequences, audit events",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "The registry's foundation tables with constraints.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-06"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-020"
+   ],
+   "acceptance": [
+    "Migration applies to an empty database",
+    "foreign keys and checks hold under negative tests",
+    "identifiers are allocated transactionally"
+   ],
+   "tests": "Integration tests on the harness.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-023",
+   "title": "Migration runner with safety checks",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Forward-only, checksummed migrations.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-OPS-006"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "A changed applied migration is refused",
+    "a failed migration leaves the schema unchanged",
+    "versions are recorded"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-024",
+   "title": "Schema: sources, versions, extractions, passages",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Provenance tables with classification on every row.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-ING-001",
+    "FR-ING-003",
+    "CR-25"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "Every passage resolves to an extraction, a source version and an original hash",
+    "class is mandatory"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-025",
+   "title": "Schema: memory records, revisions, evidence links and lifecycle triggers",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 8,
+   "objective": "IR1.1's memory model on PostgreSQL.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-MEM-001",
+    "FR-MEM-002",
+    "FR-MEM-006"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "Illegal state transitions, verification without evidence and edits to revisions are refused from raw SQL"
+   ],
+   "tests": "Port of the IR1.1 constraint probes.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-026",
+   "title": "Schema: proposals, approvals, grants",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Tables that make approval single-use and grants explicit.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-33",
+    "CR-36",
+    "FR-AGT-003"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "An approval row is unique per proposal hash and cannot be reused",
+    "a grant has scopes, projects, ceiling and expiry"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-027",
+   "title": "Schema: sessions and unreviewed session notes with expiry",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Storage for tier M3 that cannot be mistaken for knowledge.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-08",
+    "CR-42"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "Notes live in their own table with project, expiry and state",
+    "no foreign key lets them serve as evidence"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-028",
+   "title": "Audit hash chain: write path and verification",
+   "type": "task",
+   "epic": "EP-05",
+   "wave": 1,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Tamper-evident audit events.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-SEC-005",
+    "CR-17"
+   ],
+   "architecture": "IR1.1 SECURITY-ARCHITECTURE; CR-17",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "Each event hashes its predecessor",
+    "verification detects an edited, removed or reordered event"
+   ],
+   "tests": "Integration tests with tampering.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-029",
+   "title": "Constraint probe suite on PostgreSQL",
+   "type": "task",
+   "epic": "EP-04",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "The 27 IR1.1 probes, re-expressed and executed.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "NFR-019"
+   ],
+   "architecture": "CN1.1 03 (ADR-022), 07; IR1.1 DATABASE-SCHEMA",
+   "depends_on": [
+    "SB-025",
+    "SB-026"
+   ],
+   "acceptance": [
+    "Every probe has a PostgreSQL counterpart with a recorded result",
+    "differences from SQLite are documented"
+   ],
+   "tests": "The suite.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-030",
+   "title": "Implement text normalisation ar-en-1",
+   "type": "feature",
+   "epic": "EP-08",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "The specified normaliser as a tested library function.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-RET-003",
+    "NFR-022"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Outputs equal the recorded IR1.1 probe outputs for all seventeen queries and the presentation-form sentence",
+    "idempotent",
+    "total on arbitrary Unicode"
+   ],
+   "tests": "Unit tests against recorded outputs.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-031",
+   "title": "Implement light stemmer ar-light-1",
+   "type": "feature",
+   "epic": "EP-08",
+   "wave": 1,
+   "priority": "P0",
+   "points": 2,
+   "objective": "The specified stemmer as a tested library function.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-RET-003"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-030"
+   ],
+   "acceptance": [
+    "Stems equal the recorded IR1.1 outputs",
+    "non-Arabic tokens are unchanged",
+    "no stem is shorter than three letters",
+    "known misses (broken plurals) are asserted as misses"
+   ],
+   "tests": "Unit tests against recorded outputs.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-032",
+   "title": "Object store interface with a local adapter for tests",
+   "type": "task",
+   "epic": "EP-06",
+   "wave": 1,
+   "priority": "P0",
+   "points": 3,
+   "objective": "One interface for originals, with a filesystem adapter used only in tests.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-10"
+   ],
+   "architecture": "CN1.1 07; ADR-026",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Put is idempotent by content hash",
+    "an existing object is never overwritten",
+    "get verifies the checksum"
+   ],
+   "tests": "Unit tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-033",
+   "title": "Content-addressed immutable originals",
+   "type": "task",
+   "epic": "EP-06",
+   "wave": 1,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Originals stored once, by hash, and verified on read.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-ING-002",
+    "CR-10"
+   ],
+   "architecture": "CN1.1 07; ADR-026",
+   "depends_on": [
+    "SB-032",
+    "SB-024"
+   ],
+   "acceptance": [
+    "A second ingest of identical bytes stores nothing new",
+    "an altered object is detected"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-034",
+   "title": "Intake inspection and classification gate",
+   "type": "task",
+   "epic": "EP-07",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Nothing enters unclassified or above what is admitted.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-25",
+    "CR-26",
+    "FR-ING-005",
+    "FR-SEC-008"
+   ],
+   "architecture": "CN1.1 21; A1 05",
+   "depends_on": [
+    "SB-010",
+    "SB-033"
+   ],
+   "acceptance": [
+    "Unclassified input is held at K2",
+    "K3 is refused without a clearance record",
+    "K4 and secret-like content are refused",
+    "limits on size and type hold"
+   ],
+   "tests": "Unit and integration tests with hostile fixtures.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-035",
+   "title": "Text and Markdown extraction with passage locators",
+   "type": "task",
+   "epic": "EP-07",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "First-release formats become searchable passages.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "FR-ING-003",
+    "FR-ING-007",
+    "FR-ING-008"
+   ],
+   "architecture": "CN1.1 21; A1 05",
+   "depends_on": [
+    "SB-034"
+   ],
+   "acceptance": [
+    "Each passage has a stable locator into its original",
+    "extractor name and version are recorded",
+    "Arabic and mixed text survive unchanged"
+   ],
+   "tests": "Fixture tests in Arabic and English.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-036",
+   "title": "Object-then-row commit and orphan reconciliation",
+   "type": "task",
+   "epic": "EP-06",
+   "wave": 1,
+   "priority": "P0",
+   "points": 5,
+   "objective": "No row without its object after any interruption.",
+   "scope": "As stated in the objective and acceptance criteria; nothing beyond them.",
+   "requirements": [
+    "CR-11",
+    "NFR-002"
+   ],
+   "architecture": "CN1.1 07; ADR-026",
+   "depends_on": [
+    "SB-033"
+   ],
+   "acceptance": [
+    "Interruptions at each step leave either nothing or an orphan object that reconciliation removes"
+   ],
+   "tests": "Fault-injection tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": true
+  },
+  {
+   "id": "SB-040",
+   "title": "Search index over normalised and stemmed text",
+   "type": "task",
+   "epic": "EP-08",
+   "wave": 2,
+   "priority": "P0",
+   "points": 5,
+   "objective": "The index design chosen by SB-021.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-RET-001",
+    "FR-RET-007"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-021",
+    "SB-024",
+    "SB-031"
+   ],
+   "acceptance": [
+    "Index is maintained with the passages and rebuilt deterministically"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-041",
+   "title": "Search service: ranking, filters, outcomes, budgets",
+   "type": "feature",
+   "epic": "EP-08",
+   "wave": 2,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Ranked passages with locators inside a size budget.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-RET-001",
+    "FR-RET-004",
+    "FR-RET-005",
+    "CR-40"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-040"
+   ],
+   "acceptance": [
+    "Deterministic order",
+    "six outcome classes",
+    "per-call budget enforced"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-042",
+   "title": "Authorisation filter: grant, ceiling, sharing policy",
+   "type": "feature",
+   "epic": "EP-12",
+   "wave": 2,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Nothing above the caller's ceiling or outside its projects is revealed.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "CR-27",
+    "CR-36",
+    "CR-37",
+    "CR-46",
+    "CR-47"
+   ],
+   "architecture": "CN1.1 22, 23; A1 04",
+   "depends_on": [
+    "SB-041",
+    "SB-010",
+    "SB-026"
+   ],
+   "acceptance": [
+    "No content, count or hint leaks",
+    "a claimed project never widens access"
+   ],
+   "tests": "Security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-043",
+   "title": "Evidence resolution and provenance view",
+   "type": "task",
+   "epic": "EP-08",
+   "wave": 2,
+   "priority": "P1",
+   "points": 3,
+   "objective": "Every result resolves to its source text.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-RET-002",
+    "FR-RET-009",
+    "CR-09"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE",
+   "depends_on": [
+    "SB-041"
+   ],
+   "acceptance": [
+    "Locators resolve to the quoted text",
+    "project and tier are shown"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-044",
+   "title": "Benchmark harness with a synthetic bilingual corpus",
+   "type": "task",
+   "epic": "EP-09",
+   "wave": 2,
+   "priority": "P1",
+   "points": 5,
+   "objective": "The retrieval gate can be measured.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-RET-008",
+    "NFR-007"
+   ],
+   "architecture": "CN1.1 12; IR1.1 RETRIEVAL-ARCHITECTURE §9",
+   "depends_on": [
+    "SB-041"
+   ],
+   "acceptance": [
+    "Recall, precision, citation validity and abstention are computed per language and stratum"
+   ],
+   "tests": "Harness self-test.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-045",
+   "title": "Projects registry with repository references",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 2,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Projects with class ceiling, sharing policy and repository mapping.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "CR-06",
+    "CR-07",
+    "CR-37"
+   ],
+   "architecture": "A1 03; CN1.1 09",
+   "depends_on": [
+    "SB-022"
+   ],
+   "acceptance": [
+    "A project's policy defaults from its class",
+    "repository references carry no credential"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-046",
+   "title": "Session open and close with the unreviewed-note store",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 2,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Session continuity inside a project without creating knowledge.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "CR-08",
+    "CR-42"
+   ],
+   "architecture": "A1 03; CN1.1 09",
+   "depends_on": [
+    "SB-027",
+    "SB-011"
+   ],
+   "acceptance": [
+    "Notes are screened, confined to their project, enveloped and expiring",
+    "rejection removes them from retrieval"
+   ],
+   "tests": "Integration and security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-047",
+   "title": "Memory lifecycle service",
+   "type": "feature",
+   "epic": "EP-10",
+   "wave": 2,
+   "priority": "P0",
+   "points": 8,
+   "objective": "Records move through their states with history.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-MEM-001",
+    "FR-MEM-005",
+    "FR-MEM-006",
+    "FR-MEM-008"
+   ],
+   "architecture": "A1 03; CN1.1 09",
+   "depends_on": [
+    "SB-025"
+   ],
+   "acceptance": [
+    "Supersession keeps history",
+    "conflicts are kept",
+    "as-of reconstruction works"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-048",
+   "title": "Proposal engine: validation, duplicates, limits, expiry",
+   "type": "feature",
+   "epic": "EP-11",
+   "wave": 2,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Bounded, de-duplicated proposals bound to what they depend on.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "FR-AGT-003",
+    "CR-33"
+   ],
+   "architecture": "CN1.1 22; A1 05",
+   "depends_on": [
+    "SB-026",
+    "SB-012"
+   ],
+   "acceptance": [
+    "Limits refuse without discarding",
+    "duplicates return the existing proposal",
+    "stale proposals conflict"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-049",
+   "title": "Promotion to workspace level",
+   "type": "task",
+   "epic": "EP-10",
+   "wave": 2,
+   "priority": "P1",
+   "points": 3,
+   "objective": "Approved knowledge shared across projects by link.",
+   "scope": "Outline. To be elaborated when wave 2 becomes current.",
+   "requirements": [
+    "CR-38"
+   ],
+   "architecture": "A1 03; CN1.1 09",
+   "depends_on": [
+    "SB-047",
+    "SB-048"
+   ],
+   "acceptance": [
+    "Promotion needs approval, keeps class and origin"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-050",
+   "title": "Spike CV-19: can a managed identity service carry owner login and connector OAuth",
+   "type": "research",
+   "epic": "EP-12",
+   "wave": 3,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Choose managed or custom authentication on evidence.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-43"
+   ],
+   "architecture": "CN1.1 22, 23; A1 04",
+   "depends_on": [],
+   "acceptance": [
+    "Documented capabilities and limits of at least two candidates",
+    "recommendation recorded"
+   ],
+   "tests": "None.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-051",
+   "title": "Service skeleton: application, configuration, health",
+   "type": "task",
+   "epic": "EP-13",
+   "wave": 3,
+   "priority": "P0",
+   "points": 3,
+   "objective": "A runnable service with no secrets in code.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-01",
+    "CR-12"
+   ],
+   "architecture": "CN1.1 08; A1 03",
+   "depends_on": [
+    "SB-001"
+   ],
+   "acceptance": [
+    "Starts from environment configuration",
+    "health endpoint",
+    "no secret in repository"
+   ],
+   "tests": "Unit tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-052",
+   "title": "OAuth resource server: issuer, audience, scope, expiry",
+   "type": "feature",
+   "epic": "EP-12",
+   "wave": 3,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Every call authenticated and checked.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-02",
+    "CR-22",
+    "CR-18"
+   ],
+   "architecture": "CN1.1 22, 23; A1 04",
+   "depends_on": [
+    "SB-051",
+    "SB-050"
+   ],
+   "acceptance": [
+    "Wrong issuer, audience, scope or expiry is refused",
+    "revocation takes effect"
+   ],
+   "tests": "Security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-053",
+   "title": "Grant enforcement",
+   "type": "feature",
+   "epic": "EP-12",
+   "wave": 3,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Scopes, projects and ceiling applied on the server.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-03",
+    "CR-05",
+    "CR-36"
+   ],
+   "architecture": "CN1.1 22, 23; A1 04",
+   "depends_on": [
+    "SB-052",
+    "SB-026"
+   ],
+   "acceptance": [
+    "No connector token can approve, elevate or administer"
+   ],
+   "tests": "Security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-054",
+   "title": "MCP server: tool contracts and schemas",
+   "type": "feature",
+   "epic": "EP-13",
+   "wave": 3,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Narrow, validated tools.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-02",
+    "CR-16",
+    "CR-19"
+   ],
+   "architecture": "CN1.1 08; A1 03",
+   "depends_on": [
+    "SB-051"
+   ],
+   "acceptance": [
+    "Every tool has input and output schemas, limits and stable errors"
+   ],
+   "tests": "Contract tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-055",
+   "title": "MCP tools: health, search, retrieve, projects",
+   "type": "feature",
+   "epic": "EP-13",
+   "wave": 3,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Read tools.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-09",
+    "CR-27"
+   ],
+   "architecture": "CN1.1 08; A1 03",
+   "depends_on": [
+    "SB-054",
+    "SB-042",
+    "SB-053"
+   ],
+   "acceptance": [
+    "Results are labelled by tier and project and stay inside budgets"
+   ],
+   "tests": "Contract and security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-056",
+   "title": "MCP tools: sessions, session context, artifacts, propose",
+   "type": "feature",
+   "epic": "EP-13",
+   "wave": 3,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Write-side tools that can only propose.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-08",
+    "CR-42"
+   ],
+   "architecture": "CN1.1 08; A1 03",
+   "depends_on": [
+    "SB-054",
+    "SB-046",
+    "SB-048",
+    "SB-053"
+   ],
+   "acceptance": [
+    "Session context is returned only by its own tool, enveloped"
+   ],
+   "tests": "Contract and security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-057",
+   "title": "Rate and size limits; audit of every call",
+   "type": "task",
+   "epic": "EP-12",
+   "wave": 3,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Bounded use, fully recorded.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-16",
+    "CR-17",
+    "CR-41"
+   ],
+   "architecture": "CN1.1 22, 23; A1 04",
+   "depends_on": [
+    "SB-055"
+   ],
+   "acceptance": [
+    "Limits refuse and record",
+    "unusual volume alerts"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-058",
+   "title": "Approval surface: owner login, proposal view, bound decision",
+   "type": "feature",
+   "epic": "EP-11",
+   "wave": 3,
+   "priority": "P0",
+   "points": 8,
+   "objective": "The owner approves outside any session.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-30",
+    "CR-31",
+    "CR-04"
+   ],
+   "architecture": "CN1.1 22; A1 05",
+   "depends_on": [
+    "SB-048",
+    "SB-050"
+   ],
+   "acceptance": [
+    "No connector credential is accepted",
+    "the decision is bound to the stored hash"
+   ],
+   "tests": "Security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-059",
+   "title": "Approval surface hardening",
+   "type": "security",
+   "epic": "EP-11",
+   "wave": 3,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Resistant to forgery, framing and deceptive text.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-32"
+   ],
+   "architecture": "CN1.1 22; A1 05",
+   "depends_on": [
+    "SB-058"
+   ],
+   "acceptance": [
+    "Forged and framed requests fail",
+    "direction-override characters are shown"
+   ],
+   "tests": "Security tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-060",
+   "title": "Apply on approval: one transaction, single use, expiry",
+   "type": "task",
+   "epic": "EP-11",
+   "wave": 3,
+   "priority": "P0",
+   "points": 3,
+   "objective": "An approval is consumed exactly once.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "CR-33",
+    "CR-44"
+   ],
+   "architecture": "CN1.1 22; A1 05",
+   "depends_on": [
+    "SB-058"
+   ],
+   "acceptance": [
+    "Replay and expiry are refused",
+    "apply and consume are atomic"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-061",
+   "title": "Security test suite: separation, replay, project and ceiling boundaries",
+   "type": "security",
+   "epic": "EP-17",
+   "wave": 3,
+   "priority": "P0",
+   "points": 8,
+   "objective": "The release-blocking security gate.",
+   "scope": "Outline. To be elaborated when wave 3 becomes current.",
+   "requirements": [
+    "NFR-019",
+    "CR-05"
+   ],
+   "architecture": "A1 06; CN1.1 16, 24",
+   "depends_on": [
+    "SB-055",
+    "SB-056",
+    "SB-060"
+   ],
+   "acceptance": [
+    "All CN1.1 security tests that apply to the first release pass"
+   ],
+   "tests": "The suite.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-062",
+   "title": "Repository locators",
+   "type": "feature",
+   "epic": "EP-14",
+   "wave": 4,
+   "priority": "P1",
+   "points": 3,
+   "objective": "Knowledge points into code without copying it.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [
+    "CR-34",
+    "CR-35"
+   ],
+   "architecture": "CN1.1 06 §6; A1 04",
+   "depends_on": [
+    "SB-045"
+   ],
+   "acceptance": [
+    "Locators record repository, commit, path and range"
+   ],
+   "tests": "Unit tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-063",
+   "title": "Bootstrap skill and project instruction template",
+   "type": "feature",
+   "epic": "EP-14",
+   "wave": 4,
+   "priority": "P1",
+   "points": 2,
+   "objective": "Sessions are told to consult the brain.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [],
+   "architecture": "CN1.1 06 §6; A1 04",
+   "depends_on": [
+    "SB-055"
+   ],
+   "acceptance": [
+    "Skill and template hold no endpoint, secret or authority"
+   ],
+   "tests": "Review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-064",
+   "title": "Deterministic Markdown and JSON export",
+   "type": "feature",
+   "epic": "EP-15",
+   "wave": 4,
+   "priority": "P1",
+   "points": 5,
+   "objective": "A complete, repeatable export.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [
+    "CR-15",
+    "CR-21",
+    "CR-28"
+   ],
+   "architecture": "CN1.1 11; A1 05",
+   "depends_on": [
+    "SB-047"
+   ],
+   "acceptance": [
+    "Identical state gives identical bytes",
+    "class rules are applied"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-065",
+   "title": "Encrypted backup to the owner's public key with manifest",
+   "type": "feature",
+   "epic": "EP-15",
+   "wave": 4,
+   "priority": "P0",
+   "points": 5,
+   "objective": "A backup the job cannot read back in clear or delete.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [
+    "CR-14",
+    "CR-48"
+   ],
+   "architecture": "CN1.1 11; A1 05",
+   "depends_on": [
+    "SB-028",
+    "SB-033"
+   ],
+   "acceptance": [
+    "Ciphertext verifies against the manifest",
+    "the job holds no private key"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-066",
+   "title": "Restore into a scratch environment with verification",
+   "type": "feature",
+   "epic": "EP-15",
+   "wave": 4,
+   "priority": "P0",
+   "points": 5,
+   "objective": "A restore that proves itself.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [
+    "CR-14",
+    "FR-OPS-002"
+   ],
+   "architecture": "CN1.1 11; A1 05",
+   "depends_on": [
+    "SB-065"
+   ],
+   "acceptance": [
+    "Integrity, foreign keys, audit chain and sampled originals verify"
+   ],
+   "tests": "Integration tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-067",
+   "title": "Recovery drill with synthetic data",
+   "type": "task",
+   "epic": "EP-15",
+   "wave": 4,
+   "priority": "P0",
+   "points": 2,
+   "objective": "Recorded evidence that recovery works before any real data.",
+   "scope": "Outline. To be elaborated when wave 4 becomes current.",
+   "requirements": [
+    "CR-14"
+   ],
+   "architecture": "CN1.1 11; A1 05",
+   "depends_on": [
+    "SB-066"
+   ],
+   "acceptance": [
+    "Drill record with times and results"
+   ],
+   "tests": "The drill.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-068",
+   "title": "Container image and reproducible build",
+   "type": "task",
+   "epic": "EP-16",
+   "wave": 5,
+   "priority": "P1",
+   "points": 3,
+   "objective": "The same artefact builds everywhere.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-051"
+   ],
+   "acceptance": [
+    "Pinned, hash-locked build"
+   ],
+   "tests": "Build test.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-070",
+   "title": "Consolidated deployment authorisation request",
+   "type": "task",
+   "epic": "EP-16",
+   "wave": 5,
+   "priority": "P0",
+   "points": 2,
+   "objective": "One request to the owner for provider, region, resources, cost, security, residency, backup and rollback.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [
+    "CR-13",
+    "CR-20"
+   ],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-061",
+    "SB-067"
+   ],
+   "acceptance": [
+    "Request delivered with verified prices"
+   ],
+   "tests": "None.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-069",
+   "title": "Infrastructure definitions for the approved provider",
+   "type": "task",
+   "epic": "EP-16",
+   "wave": 5,
+   "priority": "P1",
+   "points": 5,
+   "objective": "Infrastructure as code.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [
+    "CR-12",
+    "CR-13"
+   ],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-068",
+    "SB-070"
+   ],
+   "acceptance": [
+    "Private database and storage",
+    "no public bucket"
+   ],
+   "tests": "Plan review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-071",
+   "title": "Deploy to the authorised environment",
+   "type": "task",
+   "epic": "EP-16",
+   "wave": 5,
+   "priority": "P0",
+   "points": 5,
+   "objective": "The service runs without the owner's computer.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [
+    "CR-01"
+   ],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-069"
+   ],
+   "acceptance": [
+    "Deployed and verified with synthetic data"
+   ],
+   "tests": "Deployment verification.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-072",
+   "title": "Monitoring, alerts and cost alarm",
+   "type": "task",
+   "epic": "EP-16",
+   "wave": 5,
+   "priority": "P1",
+   "points": 3,
+   "objective": "The owner hears about failures and spend.",
+   "scope": "Outline. To be elaborated when wave 5 becomes current.",
+   "requirements": [
+    "CR-20",
+    "CR-41"
+   ],
+   "architecture": "CN1.1 14, 15, 20",
+   "depends_on": [
+    "SB-071"
+   ],
+   "acceptance": [
+    "Alarms fire in forced tests"
+   ],
+   "tests": "Forced-failure tests.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-073",
+   "title": "Client compatibility trial with the deployed connector",
+   "type": "research",
+   "epic": "EP-17",
+   "wave": 6,
+   "priority": "P0",
+   "points": 5,
+   "objective": "Know which environments work and how each treats a substituted server.",
+   "scope": "Outline. To be elaborated when wave 6 becomes current.",
+   "requirements": [
+    "CR-22"
+   ],
+   "architecture": "A1 06; CN1.1 16, 24",
+   "depends_on": [
+    "SB-071"
+   ],
+   "acceptance": [
+    "Recorded behaviour per environment for connection, prompts, shadowing and token handling"
+   ],
+   "tests": "The trial.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-074",
+   "title": "End-to-end scenarios UX-A to UX-J",
+   "type": "task",
+   "epic": "EP-17",
+   "wave": 6,
+   "priority": "P0",
+   "points": 8,
+   "objective": "The product does what it is for.",
+   "scope": "Outline. To be elaborated when wave 6 becomes current.",
+   "requirements": [],
+   "architecture": "A1 06; CN1.1 16, 24",
+   "depends_on": [
+    "SB-056",
+    "SB-060",
+    "SB-066",
+    "SB-071"
+   ],
+   "acceptance": [
+    "Each scenario has a recorded pass or fail"
+   ],
+   "tests": "The scenarios.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-075",
+   "title": "Trial: how often sessions consult the brain unprompted",
+   "type": "research",
+   "epic": "EP-17",
+   "wave": 6,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Measure scenario UX-B.",
+   "scope": "Outline. To be elaborated when wave 6 becomes current.",
+   "requirements": [],
+   "architecture": "A1 06; CN1.1 16, 24",
+   "depends_on": [
+    "SB-073",
+    "SB-063"
+   ],
+   "acceptance": [
+    "Rate recorded with and without the aids, against a pass mark the owner set"
+   ],
+   "tests": "The trial.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-076",
+   "title": "Review against the residual-risk register",
+   "type": "security",
+   "epic": "EP-18",
+   "wave": 7,
+   "priority": "P0",
+   "points": 3,
+   "objective": "Every residual risk is either tested, accepted by the owner or open.",
+   "scope": "Outline. To be elaborated when wave 7 becomes current.",
+   "requirements": [],
+   "architecture": "A1 07; CN1.1 25",
+   "depends_on": [
+    "SB-061"
+   ],
+   "acceptance": [
+    "Register updated with evidence"
+   ],
+   "tests": "Review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Security-relevant: stops at IN REVIEW until reviewed by someone other than the author (PD-004).",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-077",
+   "title": "Operator documentation and runbooks",
+   "type": "task",
+   "epic": "EP-18",
+   "wave": 7,
+   "priority": "P1",
+   "points": 5,
+   "objective": "The owner can operate and recover the system.",
+   "scope": "Outline. To be elaborated when wave 7 becomes current.",
+   "requirements": [],
+   "architecture": "A1 07; CN1.1 25",
+   "depends_on": [
+    "SB-067"
+   ],
+   "acceptance": [
+    "Runbooks exercised in the drill"
+   ],
+   "tests": "Review.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  },
+  {
+   "id": "SB-078",
+   "title": "Production-readiness assessment and reviewer package",
+   "type": "task",
+   "epic": "EP-18",
+   "wave": 7,
+   "priority": "P0",
+   "points": 3,
+   "objective": "An honest statement of what is implemented, tested, verified, deployed and blocked.",
+   "scope": "Outline. To be elaborated when wave 7 becomes current.",
+   "requirements": [],
+   "architecture": "A1 07; CN1.1 25",
+   "depends_on": [
+    "SB-074",
+    "SB-076"
+   ],
+   "acceptance": [
+    "Assessment delivered",
+    "independent review requested"
+   ],
+   "tests": "None.",
+   "deliverables": "Code or configuration, tests, and updated documentation for this ticket.",
+   "risks": "Ordinary implementation risk.",
+   "status": "BACKLOG",
+   "blocked_reason": "",
+   "evidence": "",
+   "elaborated": false
+  }
+ ],
+ "definition_of_done": "Implementation exists; relevant automated tests pass; acceptance criteria are met; security requirements are met; documentation is updated; review is complete (PD-004); evidence is linked; no critical defect is open; integration checks pass. Deployment tickets distinguish code complete, tested, deployment ready, deployed and production verified.",
+ "owner_decisions": [
+  "Create the private repository `ai-second-brain-platform` and grant access (BLK-001)",
+  "Provider, region and monthly cost ceiling (requested through SB-070)",
+  "Name a reviewer for security-relevant tickets (PD-004)",
+  "Pass mark for the unprompted-retrieval trial (SB-075)",
+  "Acceptance or not of the residual risks listed in the CN1.1 addendum"
+ ]
+}

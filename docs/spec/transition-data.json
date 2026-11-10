@@ -1,0 +1,556 @@
+{
+ "adr": [
+  {
+   "id": "ADR-001",
+   "disposition": "RETAINED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-002",
+   "disposition": "AMENDED",
+   "replacement": "ADR-030"
+  },
+  {
+   "id": "ADR-003",
+   "disposition": "RETAINED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-004",
+   "disposition": "SUPERSEDED",
+   "replacement": "ADR-022"
+  },
+  {
+   "id": "ADR-005",
+   "disposition": "AMENDED",
+   "replacement": "ADR-023"
+  },
+  {
+   "id": "ADR-006",
+   "disposition": "RETAINED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-007",
+   "disposition": "RETAINED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-008",
+   "disposition": "AMENDED",
+   "replacement": "ADR-031"
+  },
+  {
+   "id": "ADR-009",
+   "disposition": "AMENDED",
+   "replacement": "ADR-025"
+  },
+  {
+   "id": "ADR-010",
+   "disposition": "AMENDED",
+   "replacement": "ADR-028"
+  },
+  {
+   "id": "ADR-011",
+   "disposition": "SUPERSEDED",
+   "replacement": "ADR-021"
+  },
+  {
+   "id": "ADR-012",
+   "disposition": "AMENDED",
+   "replacement": "ADR-030"
+  },
+  {
+   "id": "ADR-013",
+   "disposition": "SUPERSEDED",
+   "replacement": "ADR-026"
+  },
+  {
+   "id": "ADR-014",
+   "disposition": "AMENDED",
+   "replacement": "ADR-027"
+  },
+  {
+   "id": "ADR-015",
+   "disposition": "SUPERSEDED",
+   "replacement": "ADR-025"
+  },
+  {
+   "id": "ADR-016",
+   "disposition": "AMENDED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-017",
+   "disposition": "AMENDED",
+   "replacement": "ADR-026"
+  },
+  {
+   "id": "ADR-018",
+   "disposition": "SUPERSEDED",
+   "replacement": "ADR-024"
+  },
+  {
+   "id": "ADR-019",
+   "disposition": "DEFERRED",
+   "replacement": "\u2014"
+  },
+  {
+   "id": "ADR-020",
+   "disposition": "AMENDED",
+   "replacement": "ADR-029"
+  }
+ ],
+ "requirements": {
+  "FR-ING-001": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-002": {
+   "impact": "AMENDED",
+   "new": "CR-10"
+  },
+  "FR-ING-003": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-004": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-005": {
+   "impact": "AMENDED",
+   "new": "CR-23"
+  },
+  "FR-ING-006": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-007": {
+   "impact": "AMENDED",
+   "new": "CR-23"
+  },
+  "FR-ING-008": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-009": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-ING-010": {
+   "impact": "SUPERSEDED",
+   "new": "CR-10"
+  },
+  "FR-ING-011": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-KNW-001": {
+   "impact": "AMENDED",
+   "new": "CR-21"
+  },
+  "FR-KNW-002": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-KNW-003": {
+   "impact": "AMENDED",
+   "new": "CR-21"
+  },
+  "FR-KNW-004": {
+   "impact": "SUPERSEDED",
+   "new": "CR-21"
+  },
+  "FR-KNW-005": {
+   "impact": "AMENDED",
+   "new": "CR-21"
+  },
+  "FR-KNW-006": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-KNW-007": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-KNW-008": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-KNW-009": {
+   "impact": "AMENDED",
+   "new": "CR-15"
+  },
+  "FR-MEM-001": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-002": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-003": {
+   "impact": "AMENDED",
+   "new": "CR-08"
+  },
+  "FR-MEM-004": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-005": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-006": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-007": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-008": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-009": {
+   "impact": "AMENDED",
+   "new": "CR-45"
+  },
+  "FR-MEM-010": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-011": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-MEM-012": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-RET-001": {
+   "impact": "AMENDED",
+   "new": "CR-09"
+  },
+  "FR-RET-002": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-RET-003": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-RET-004": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-RET-005": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-RET-006": {
+   "impact": "AMENDED",
+   "new": "CR-12"
+  },
+  "FR-RET-007": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-RET-008": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-RET-009": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-PRJ-001": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-PRJ-002": {
+   "impact": "AMENDED",
+   "new": "CR-07"
+  },
+  "FR-PRJ-003": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-PRJ-004": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-PRJ-005": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-AGT-001": {
+   "impact": "AMENDED",
+   "new": "CR-05"
+  },
+  "FR-AGT-002": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-AGT-003": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-AGT-004": {
+   "impact": "SUPERSEDED",
+   "new": "CR-03, CR-04"
+  },
+  "FR-AGT-005": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-AGT-006": {
+   "impact": "AMENDED",
+   "new": "CR-17"
+  },
+  "FR-AGT-007": {
+   "impact": "SUPERSEDED",
+   "new": "CR-02, CR-22"
+  },
+  "FR-AGT-008": {
+   "impact": "AMENDED",
+   "new": "CR-24"
+  },
+  "FR-SEC-001": {
+   "impact": "SUPERSEDED",
+   "new": "CR-03, CR-05"
+  },
+  "FR-SEC-002": {
+   "impact": "AMENDED",
+   "new": "CR-12, CR-18"
+  },
+  "FR-SEC-003": {
+   "impact": "RETAINED",
+   "new": "CR-19"
+  },
+  "FR-SEC-004": {
+   "impact": "AMENDED",
+   "new": "CR-23"
+  },
+  "FR-SEC-005": {
+   "impact": "RETAINED",
+   "new": "CR-17"
+  },
+  "FR-SEC-006": {
+   "impact": "SUPERSEDED",
+   "new": "CR-02, CR-12, CR-13"
+  },
+  "FR-SEC-007": {
+   "impact": "AMENDED",
+   "new": "CR-02"
+  },
+  "FR-SEC-008": {
+   "impact": "AMENDED",
+   "new": "CR-23"
+  },
+  "FR-OPS-001": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-OPS-002": {
+   "impact": "AMENDED",
+   "new": "CR-14"
+  },
+  "FR-OPS-003": {
+   "impact": "AMENDED",
+   "new": "CR-14"
+  },
+  "FR-OPS-004": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-OPS-005": {
+   "impact": "AMENDED",
+   "new": "CR-11"
+  },
+  "FR-OPS-006": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-OPS-007": {
+   "impact": "SUPERSEDED",
+   "new": "CR-24"
+  },
+  "FR-OPS-008": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-OPS-009": {
+   "impact": "SUPERSEDED",
+   "new": "\u2014"
+  },
+  "FR-OPS-010": {
+   "impact": "AMENDED",
+   "new": "CR-14"
+  },
+  "FR-OBS-001": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-OBS-002": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "FR-OBS-003": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "FR-IMP-001": {
+   "impact": "DEFERRED",
+   "new": "\u2014"
+  },
+  "FR-IMP-002": {
+   "impact": "DEFERRED",
+   "new": "\u2014"
+  },
+  "FR-IMP-003": {
+   "impact": "DEFERRED",
+   "new": "\u2014"
+  },
+  "NFR-001": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "NFR-002": {
+   "impact": "AMENDED",
+   "new": "CR-11"
+  },
+  "NFR-003": {
+   "impact": "AMENDED",
+   "new": "CR-15"
+  },
+  "NFR-004": {
+   "impact": "SUPERSEDED",
+   "new": "CR-01, CR-15"
+  },
+  "NFR-005": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "NFR-006": {
+   "impact": "AMENDED",
+   "new": "CR-14"
+  },
+  "NFR-007": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "NFR-008": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "NFR-009": {
+   "impact": "SUPERSEDED",
+   "new": "CR-13"
+  },
+  "NFR-010": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "NFR-011": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "NFR-012": {
+   "impact": "AMENDED",
+   "new": "CR-20"
+  },
+  "NFR-013": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "NFR-014": {
+   "impact": "AMENDED",
+   "new": "CR-17"
+  },
+  "NFR-015": {
+   "impact": "AMENDED",
+   "new": "CR-20"
+  },
+  "NFR-016": {
+   "impact": "AMENDED",
+   "new": "\u2014"
+  },
+  "NFR-017": {
+   "impact": "AMENDED",
+   "new": "CR-15"
+  },
+  "NFR-018": {
+   "impact": "AMENDED",
+   "new": "CR-14"
+  },
+  "NFR-019": {
+   "impact": "AMENDED",
+   "new": "CR-05"
+  },
+  "NFR-020": {
+   "impact": "SUPERSEDED",
+   "new": "CR-01"
+  },
+  "NFR-021": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  },
+  "NFR-022": {
+   "impact": "RETAINED",
+   "new": "\u2014"
+  }
+ },
+ "cloud_requirements": [
+  "CR-01",
+  "CR-02",
+  "CR-03",
+  "CR-04",
+  "CR-05",
+  "CR-06",
+  "CR-07",
+  "CR-08",
+  "CR-09",
+  "CR-10",
+  "CR-11",
+  "CR-12",
+  "CR-13",
+  "CR-14",
+  "CR-15",
+  "CR-16",
+  "CR-17",
+  "CR-18",
+  "CR-19",
+  "CR-20",
+  "CR-21",
+  "CR-22",
+  "CR-23",
+  "CR-24",
+  "CR-25",
+  "CR-26",
+  "CR-27",
+  "CR-28",
+  "CR-29",
+  "CR-30",
+  "CR-31",
+  "CR-32",
+  "CR-33",
+  "CR-34",
+  "CR-35",
+  "CR-36",
+  "CR-37",
+  "CR-38",
+  "CR-39",
+  "CR-40",
+  "CR-41",
+  "CR-42",
+  "CR-43",
+  "CR-44",
+  "CR-45",
+  "CR-46",
+  "CR-47",
+  "CR-48"
+ ]
+}
